@@ -1,4 +1,4 @@
-"""Flask application for Dark Work Factory homepage."""
+"""Flask application for Dark Work, LLC homepage."""
 
 import argparse
 import os
@@ -34,7 +34,7 @@ PROJECT_DESCRIPTIONS = {
     'darkwork': 'Darkworks Lab is a local-first security monitoring application built with Flutter for Android and Linux. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, event logging, and SDR status into one responsive interface.',
     'zombie_tim': 'Zombie Tim is the world\'s first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!',
     'battle_chess_mobile': 'A visceral, cartoon-style chess game built with Flutter and the Flame engine. Featuring chunky pieces with big personalities and high-impact combat animations.',
-    'nervous': 'A state-of-the-art Flutter mobile application developed by Dark Work Factory that measures real-time nervousness, anxiety, and physiological stress using phone sensors and paired smartwatch biometrics.'
+    'nervous': 'A state-of-the-art Flutter mobile application developed by Dark Work, LLC that measures real-time nervousness, anxiety, and physiological stress using phone sensors and paired smartwatch biometrics.'
 }
 
 # Map project slugs to their template name prefix
@@ -134,7 +134,7 @@ def document(project, doc_type):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Dark Work Factory Homepage Flask Application'
+        description='Dark Work, LLC Homepage Flask Application'
     )
     parser.add_argument(
         '--port', type=int, default=5000,

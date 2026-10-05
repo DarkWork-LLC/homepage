@@ -1,8 +1,8 @@
 # Nervous? User Guide
 
-Welcome to **Nervous?**, developed by **Dark Work Factory**. This user guide walks you through navigating the application, tracking your nervousness, and utilizing the Flame-powered polygraph lie detector.
+Welcome to **Nervous?**, developed by **Dark Work, LLC**. This user guide walks you through navigating the application, tracking your nervousness, and utilizing the Flame-powered polygraph lie detector.
 
-© 2026 Dark Work Factory. All rights reserved.
+© 2026 Dark Work, LLC. All rights reserved.
 
 ---
 

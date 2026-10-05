@@ -1,16 +1,15 @@
 # Darkworks Lab
 
-**Application:** Darkwork Labs
+**Application:** Darkworks Lab
 **Android package:** `com.darkworks.lab`
 **Version:** 1.0.0+1
 **Platforms:** Android and Linux
-**Framework:** Flutter / Dart
 
-Darkworks Lab is a local-first security monitoring application. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, and event logging into one responsive Flutter interface.
+Darkworks Lab is a local-first security monitoring application. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, and event logging into one responsive interface.
 
 > **Educational use only:** This application is provided for learning, experimentation, and authorized defensive research. It is not professional security advice or a guarantee of protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use this application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action.
 
-The current UI is a monitoring and inspection tool. It does not include a cloud backend, AI/LLM analysis, or a Windows target. Availability of individual sensors, network data, filesystem access, and SDR features depends on the platform and permissions.
+The current UI is a monitoring and inspection tool. Availability of individual sensors, network data, filesystem access, and SDR features depends on the platform and permissions.
 
 ## Features
 
@@ -26,7 +25,7 @@ The current UI is a monitoring and inspection tool. It does not include a cloud 
 
 ## Architecture
 
-The app uses Flutter Material 3 and Provider-based `ChangeNotifier` services:
+Darkworks Lab is built with modern reactive state management and modular services:
 
 - `SecurityService` — perimeter scanning and device discovery.
 - `NetworkSecurityService` — network host, port, and security checks.
@@ -34,45 +33,13 @@ The app uses Flutter Material 3 and Provider-based `ChangeNotifier` services:
 - `SystemMonitorService` — system and performance telemetry.
 - `FilesystemScannerService` — local file scanning.
 - `RadioFrequencyService` — SDR detection and radio status.
-- `LoggingService` and `DatabaseService` — local event/log persistence.
-- `ThemeService` — light/dark Material 3 themes and shared colors.
-
-Screens are under `lib/screens/`, reusable presentation is under `lib/widgets/`, and tests are under `test/`.
-
-## Development
-
-### Prerequisites
-
-- Flutter 3.x with Dart 3.x
-- Android toolchain for Android builds
-- Linux GTK build dependencies for Linux builds
-
-### Common commands
-
-```bash
-flutter pub get
-flutter analyze
-flutter test
-flutter run -d android
-flutter run -d linux
-flutter build apk --debug
-flutter build linux --debug
-```
-
-The repository also provides equivalent convenience targets in `Makefile` (for example `make get`, `make lint`, `make test`, and `make build-android`). The `Makefile` assumes Flutter is installed at `~/flutter/bin/flutter`; the direct Flutter commands above are portable when Flutter is on `PATH`.
+- `LoggingService` and `DatabaseService` — local event and log persistence.
+- `ThemeService` — light and dark themes and shared styling.
 
 ## Platform and permissions
 
-Android declares internet, network-state, Wi-Fi-state, Bluetooth, location, notification, and storage-related permissions in `android/app/src/main/AndroidManifest.xml`. Runtime location and Bluetooth permissions are requested on the first launch on supported mobile platforms. Linux has no Android permission dialogs; platform feature support varies by host and hardware.
-
-## Documentation
-
-- [User Guide](USER_GUIDE.md)
-- [Privacy Policy](PRIVACY_POLICY.md)
-- [Google Play Upload Guide](GOOGLE_PLAY_UPLOAD_GUIDE.md)
-- [Release Summary](RELEASE_SUMMARY.md)
-- [License](LICENSE.md)
+Android declares internet, network-state, Wi-Fi-state, Bluetooth, location, notification, and storage-related permissions in its application manifest. Runtime location and Bluetooth permissions are requested on first launch on supported mobile platforms. Linux permission behavior depends on the host operating system and hardware configuration.
 
 ## Ownership
 
-Copyright © 2025–2026 Darkwork Labs and darkworkllc@gmail.com. Proprietary software; see [LICENSE.md](LICENSE.md).
+Copyright © 2026 Dark Work, LLC and darkworkllc@gmail.com. Proprietary software. All rights reserved.

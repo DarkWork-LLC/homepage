@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darkness BBS - User Guide - Dark Work Factory</title>
+    <title>Darkness BBS - User Guide - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -25,7 +25,6 @@
         <li><a href="#drug-addiction">Drug & Addiction System</a></li>
         <li><a href="#npc-aggression">NPC Aggression & Stalking</a></li>
         <li><a href="#party-system">Party System</a></li>
-        <li><a href="#server-administration">Server Administration</a></li>
         <li><a href="#mud-client-setup">MUD Client Setup</a></li>
     </ol>
 
@@ -317,14 +316,6 @@
         <li><strong>Group Movement</strong>: When the leader moves, all online party members move with them.</li>
     </ul>
 
-    <h2 id="server-administration">Server Administration</h2>
-    <ul>
-        <li><code>make repair</code>: Full database reset (wipes players).</li>
-        <li><code>make clean</code>: Wipes world data but keeps players.</li>
-        <li><code>make init</code>: Generates new world state.</li>
-        <li><code>python manage.py process_bots</code>: Starts the AI daemon.</li>
-    </ul>
-
     <h2 id="mud-client-setup">MUD Client Setup</h2>
     <p>Darkness BBS supports traditional MUD clients like Mudlet, MUSHclient, and any standard Telnet client.</p>
 
@@ -333,14 +324,14 @@
     <ol>
         <li>Open Mudlet</li>
         <li>Click <strong>"Connect"</strong> → <strong>"Connect to..."</strong></li>
-        <li>Enter details: Host: <code>localhost</code>, Port: <code>4000</code>, Name: <code>Darkness BBS</code></li>
+        <li>Enter connection details provided by the server administrator</li>
         <li>Uncheck <strong>"Use SSL/TLS"</strong></li>
         <li>Click <strong>"Connect"</strong></li>
         <li>Log in with your handle and password when prompted</li>
     </ol>
 
     <h4>MUSHclient & Generic Telnet</h4>
-    <p>Connect to <code>localhost:4000</code> using MUSHclient or via terminal command: <code>telnet localhost 4000</code>.</p>
+    <p>Connect to the server host and port using MUSHclient or any standard Telnet client.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

@@ -4,7 +4,7 @@
 **Version:** 1.0.0+1
 **Platforms:** Android and Linux
 
-Darkwork Lab is a local-first Flutter application for learning, experimentation, and authorized defensive research. It inspects local devices, network activity, hardware telemetry, storage, and system health. It is not professional security advice and does not guarantee detection or protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use the application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action. Some features depend on device hardware, operating-system permissions, network access, and optional SDR equipment.
+Darkworks Lab is a local-first application for learning, experimentation, and authorized defensive research. It inspects local devices, network activity, hardware telemetry, storage, and system health. It is not professional security advice and does not guarantee detection or protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use the application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action. Some features depend on device hardware, operating-system permissions, network access, and optional SDR equipment.
 
 ## Getting started
 
@@ -57,7 +57,7 @@ System Settings exposes the settings available in the current build. Theme mode 
 
 ## Privacy and safety
 
-Monitoring data is handled by the application and its dependencies on the local device according to the [Privacy Policy](PRIVACY_POLICY.md). This is educational software provided without a guarantee of complete detection or protection. Do not treat a clean result as proof that a device is secure.
+Monitoring data is handled by the application on the local device. This is educational software provided without a guarantee of complete detection or protection. Do not treat a clean result as proof that a device is secure.
 
 ## Troubleshooting
 
@@ -66,8 +66,7 @@ Monitoring data is handled by the application and its dependencies on the local 
 - **Sensors unavailable:** check OS permissions, hardware support, and whether the stream is enabled.
 - **Filesystem results are incomplete:** the scanner can only inspect paths exposed to the app; missing storage permissions reduce coverage.
 - **No radio data:** connect a supported SDR and install the required host/runtime support.
-- **Build or dependency issue:** run `flutter pub get`, then `flutter analyze` and `flutter test`.
 
 ## Ownership and liability
 
-See [LICENSE.md](LICENSE.md) for ownership, warranty, and liability terms.
+Contact **darkworkllc@gmail.com** for support. All rights reserved by **Dark Work, LLC**.

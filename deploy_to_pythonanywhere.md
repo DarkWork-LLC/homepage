@@ -1,4 +1,4 @@
-# Deployment Guide for Dark Work Factory Homepage to PythonAnywhere
+# Deployment Guide for Dark Work, LLC Homepage to PythonAnywhere
 
 ## Prerequisites
 - A PythonAnywhere account (free tier should suffice for basic use).

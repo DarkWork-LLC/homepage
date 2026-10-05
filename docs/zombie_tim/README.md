@@ -23,8 +23,6 @@ Built with **Flutter**, Zombie Tim runs seamlessly on Android, iOS, Web, Linux, 
 - **🔒 Security Monitoring**: Tim can perform security audits via chat commands - check your network connections, scan for suspicious activity, and monitor Bluetooth devices.
 - **🩺 Daily Summary**: Ask for a `daily summary` to get an at-a-glance view of your day, or `summarize` to see what Tim remembers of your conversations.
 
-> ⚠️ **Security:** `zombie-release.zip` contains a **private signing key**. Never commit it or post it publicly, and back it up somewhere safe — if that key is lost you can no longer publish updates to the same Play Store listing. All keystores (`*.jks`, `*.keystore`, `*.p12`, `*.pfx`, …), certificates and private keys (`*.pem`, `*.key`, `*.crt`, `*.cer`, `*.der`, …), Apple provisioning profiles, `key.properties` files and distributables (`*.apk`, `*.aab`, `*.ipa`) are ignored by `.gitignore`. If one is ever committed, treat it as compromised and rotate it.
-
 ## 🔒 Security
 
 Zombie Tim can perform security audits on your system via chat commands. Type `security scan`, `check network`, or `check bluetooth` in the chat interface to get detailed security reports.
@@ -34,15 +32,11 @@ Zombie Tim can perform security audits on your system via chat commands. Type `s
 - **`check network`** or **`network status`**: Quick network overview
 - **`check bluetooth`** or **`bluetooth status`**: Bluetooth device monitoring
 
-All scans are performed locally on your device. No data is transmitted. See [USER_GUIDE.md](./USER_GUIDE.md) for detailed usage.
+All scans are performed locally on your device. No data is transmitted.
 
 ## 🔒 Privacy
 
-Your data stays in your grave. All interactions, reminders, tasks, and notes are stored **locally** on your device using an encrypted-ready SQLite database. No personal data is sent to our servers. See [PRIVACY_POLICY.md](./PRIVACY_POLICY.md) for details.
-
-## 🤝 Contributing
-
-Tim's brain is always expanding! If you'd like to contribute to his development, feel free to submit a pull request or report issues.
+Your data stays in your grave. All interactions, reminders, tasks, and notes are stored **locally** on your device using an encrypted-ready SQLite database. No personal data is sent to our servers.
 
 ---
 

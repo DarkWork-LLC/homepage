@@ -16,7 +16,7 @@ class TestApp(unittest.TestCase):
         """Test the home page."""
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Dark Work Factory', response.data)
+        self.assertIn(b'Dark Work, LLC', response.data)
 
     def test_static_logo(self):
         """Test that the static logo image is accessible."""

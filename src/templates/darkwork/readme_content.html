@@ -3,14 +3,13 @@
 <p><strong>Application:</strong> Darkworks Lab<br>
 <strong>Android package:</strong> <code>com.darkworks.lab</code><br>
 <strong>Version:</strong> 1.0.0+1<br>
-<strong>Platforms:</strong> Android and Linux<br>
-<strong>Framework:</strong> Flutter / Dart</p>
+<strong>Platforms:</strong> Android and Linux</p>
 
-<p>Darkworks Lab is a local-first security monitoring application. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, and event logging into one responsive Flutter interface.</p>
+<p>Darkworks Lab is a local-first security monitoring application. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, and event logging into one responsive interface.</p>
 
 <p><em>Educational use only: This application is provided for learning, experimentation, and authorized defensive research. It is not professional security advice or a guarantee of protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use of the application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action.</em></p>
 
-<p>The current UI is a monitoring and inspection tool. It does not include a cloud backend, AI/LLM analysis, or a Windows target. Availability of individual sensors, network data, filesystem access, and SDR features depends on the platform and permissions.</p>
+<p>The current UI is a monitoring and inspection tool. Availability of individual sensors, network data, filesystem access, and SDR features depends on the platform and permissions.</p>
 
 <h2>Features</h2>
 <ul>
@@ -25,8 +24,8 @@
     <li><strong>Settings:</strong> application settings and appearance controls exposed by the current UI.</li>
 </ul>
 
-<h2>⚙️ Architecture</h2>
-<p>Flutter Material 3 with Provider-based <code>ChangeNotifier</code> services:</p>
+<h2>Architecture</h2>
+<p>Darkworks Lab is built with modern reactive state management and modular services:</p>
 <ul>
     <li><code>SecurityService</code> — perimeter scanning and device discovery.</li>
     <li><code>NetworkSecurityService</code> — network host, port, and security checks.</li>
@@ -35,26 +34,12 @@
     <li><code>FilesystemScannerService</code> — local file scanning.</li>
     <li><code>RadioFrequencyService</code> — SDR detection and radio status.</li>
     <li><code>LoggingService</code> / <code>DatabaseService</code> — local event and log persistence.</li>
-    <li><code>ThemeService</code> — light/dark Material 3 themes.</li>
+    <li><code>ThemeService</code> — light/dark themes and shared styling.</li>
 </ul>
 
-<h2>💻 Development</h2>
-<p>Requires Flutter 3.x / Dart 3.x, the Android toolchain, and Linux GTK build dependencies.</p>
-<pre><code>flutter pub get
-flutter analyze
-flutter test
-flutter run -d android
-flutter run -d linux
-flutter build apk --debug
-flutter build linux --debug</code></pre>
+<h2>Platform and Permissions</h2>
+<p>Android declares internet, network-state, Wi-Fi-state, Bluetooth, location, notification, and storage-related permissions in its application manifest. Runtime location and Bluetooth permissions are requested on first launch on supported mobile platforms. Linux permission behavior depends on the host operating system and hardware configuration.</p>
 
-<h2>📖 Documentation</h2>
-<ul>
-    <li><a href="/darkwork/user_guide">User Guide</a> — feature walkthrough and troubleshooting</li>
-    <li><a href="/darkwork/privacy">Privacy Policy</a> — locally processed data and permissions</li>
-    <li><a href="/darkwork/license">License</a> — ownership and liability terms</li>
-</ul>
-
-<h2>⚖️ License</h2>
-<p><strong>Copyright (c) 2025&ndash;2026 Darkworks Lab &amp; darkworkllc@gmail.com</strong><br>
-Proprietary software. All rights reserved. See <a href="/darkwork/license">LICENSE</a> for details.</p>
+<h2>License</h2>
+<p><strong>Copyright (c) 2026 Dark Work, LLC &amp; darkworkllc@gmail.com</strong><br>
+Proprietary software. All rights reserved.</p>

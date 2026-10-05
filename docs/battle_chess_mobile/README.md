@@ -29,5 +29,5 @@ This software is provided for educational and entertainment purposes only, "as i
 
 **Proprietary License**
 
-© 2026 **Dark Work Factory** & **darkworkllc@gmail.com**. All rights reserved.
-Created and owned by **Dark Work Factory**. Unauthorized copying, modification, or distribution of this software is strictly prohibited.
+© 2026 **Dark Work, LLC** & **darkworkllc@gmail.com**. All rights reserved.
+Created and owned by **Dark Work, LLC**. Unauthorized copying, modification, or distribution of this software is strictly prohibited.

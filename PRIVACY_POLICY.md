@@ -1,8 +1,8 @@
-# Privacy Policy for Dark Work Factory Homepage
+# Privacy Policy for Dark Work, LLC Homepage
 
 ## Introduction
 
-Dark Work Factory values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you visit our homepage.
+Dark Work, LLC values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you visit our homepage.
 
 ## Information We Collect
 

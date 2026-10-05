@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dumb Phone - User Guide - Dark Work Factory</title>
+    <title>Dumb Phone - User Guide</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -25,21 +25,10 @@
         <li><a href="#settings">Settings</a></li>
     </ol>
 
-    <h2>Documentation</h2>
-    <ul>
-        <li><strong><a href="/dumb_phone/privacy">Privacy Policy</a></strong>: Complete privacy policy and data handling information.</li>
-    </ul>
-
     <hr>
 
     <h2 id="introduction">1. Introduction</h2>
     <p>Dumb Phone uses Android's VPN Service API to intercept and filter network traffic locally on your device. The app features a modern, beautiful, and <strong>elastic interface</strong> that adapts to any screen size with smooth animations and full dark mode support.</p>
-
-    <p><strong>Multi-Platform Support:</strong></p>
-    <ul>
-        <li><strong>Android</strong>: Full support via native <code>VpnService</code> (Android 7.1+, API 25).</li>
-        <li><strong>Linux</strong>: Desktop builds run for development and testing (UI and local database via SQLite FFI). The firewall engine itself currently requires Android's <code>VpnService</code> — there is no iptables integration yet.</li>
-    </ul>
 
     <p><strong>Important:</strong> You must grant <strong>VPN Permission</strong> when prompted for the firewall to function on Android. All processing is local; the app's only outbound network traffic is one-way downloads of public blocklist files (first launch and approximately weekly) — no personal or traffic data ever leaves the device.</p>
 
@@ -98,15 +87,12 @@
             <ul>
                 <li><strong>IP Address</strong>: Target specific servers (e.g., <code>192.168.1.1</code>).</li>
                 <li><strong>Port / Protocol</strong>: Enforce filtering per port and per protocol (TCP/UDP).</li>
-                <li><strong>Domain / Application</strong>: Defined in the data model; enforcement is planned.</li>
             </ul>
         </li>
         <li><strong>Actions</strong>: Set to <strong>Allow</strong> (green) or <strong>Block</strong> (red).</li>
         <li><strong>Granularity</strong>: You can specify Ports and Protocols (TCP/UDP) for IP rules.</li>
         <li><strong>Visual Design</strong>: Rules display with color-coded action indicators, protocol chips, and smooth animations.</li>
     </ul>
-
-    <p><em>Note: Rules stored in the database are evaluated natively by both firewall modes (IP address, port, and protocol rules are enforced; domain/application rules are not yet enforced). The Firewall Rules management screen exists in the codebase but is not yet wired into app navigation, so rules cannot be created from the UI — this is planned for a future update.</em></p>
 
     <h2 id="logs-and-activity">5. Logs and Activity</h2>
     <p>The <strong>Logs</strong> screen provides a transparent history of your device's networking with enhanced visual design:</p>
@@ -160,7 +146,7 @@
     <p><em>This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact darkworkllc@gmail.com for support.</em></p>
 
     <h2>Support</h2>
-    <p>For issues, questions, or contributions, contact darkworkllc@gmail.com.</p>
+    <p>For issues or questions, contact darkworkllc@gmail.com.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

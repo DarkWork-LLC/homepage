@@ -12,7 +12,7 @@ When you first open the app, you'll be greeted by **Zombie Tim** himself. He mig
 2.  **Initialize**: On first run, Tim sets up his "Brain Database" (SQLite) to remember your interactions.
 3.  **Start Chatting**: Use the bottom navigation to jump between screens. The Chat header always reminds you: type **`help`** to see every command Tim knows.
 
-> 💡 **Lost?** Type **`help`** (or **`what can you do`**) at any time. If you're building Zombie Tim yourself, see the [README](./README.md) for `make` targets and release-signing instructions.
+> 💡 **Lost?** Type **`help`** (or **`what can you do`**) at any time.
 
 ---
 
@@ -140,7 +140,7 @@ Tim keeps an eye on the machine he's shambling around in:
 The same information is available from chat with **`system health`**, **`check updates`**, **`run diagnostics`**, and **`update system`**.
 
 ### 💀 Danger Zone
-- **Clear Brain**: Deletes **all conversations, learned words, and knowledge** — a true factory reset for Tim's memory. (This cannot be undone!)
+- **Clear Brain**: Deletes **all conversations, learned words, and knowledge** — a true reset for Tim's memory. (This cannot be undone!)
 
 ---
 
@@ -148,8 +148,7 @@ The same information is available from chat with **`system health`**, **`check u
 
 If Tim becomes too "braindead" or encounters an error:
 1.  Go to **Settings** -> **Danger Zone** -> **Clear Brain** to reset his memory (conversations, words, and knowledge).
-2.  Check the `README.md` for project information.
-3.  Contact the creators at `darkworkllc@gmail.com`.
+2.  Contact the creators at `darkworkllc@gmail.com`.
 
 ---
 

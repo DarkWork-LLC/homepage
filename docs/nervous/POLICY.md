@@ -1,12 +1,12 @@
 # Nervous? Privacy & Usage Policy
 
 **Effective Date**: January 1, 2026  
-**Copyright**: © 2026 Dark Work Factory. All rights reserved.
+**Copyright**: © 2026 Dark Work, LLC. All rights reserved.
 
 ---
 
 ## 1. Overview & 100% Local Processing
-Dark Work Factory ("we", "our", or "us") respects your privacy. **Nervous? processes all sensor and biometric telemetry 100% locally on your device. No third parties have access to your data, and no data ever leaves your phone.**
+Dark Work, LLC ("we", "our", or "us") respects your privacy. **Nervous? processes all sensor and biometric telemetry 100% locally on your device. No third parties have access to your data, and no data ever leaves your phone.**
 
 ## 2. Biometric & Sensor Data Collection & Permissions
 - **Phone Sensors & Activity**: Accelerometer and gyroscope data are processed locally for tremor analysis.
@@ -14,7 +14,7 @@ Dark Work Factory ("we", "our", or "us") respects your privacy. **Nervous? proce
 - **Standalone Operation**: Works completely without a watch.
 
 ## 3. Legal Disclaimer
-**For educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. The developer and Dark Work Factory provide no warranties and assume no responsibility or liability for any actions, decisions, or outcomes made using this software.** Nervous? is not a medical device or certified polygraph instrument.
+**For educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. The developer and Dark Work, LLC provide no warranties and assume no responsibility or liability for any actions, decisions, or outcomes made using this software.** Nervous? is not a medical device or certified polygraph instrument.
 
 ## 4. Contact Us
 For support inquiries, contact darkworkllc@gmail.com.

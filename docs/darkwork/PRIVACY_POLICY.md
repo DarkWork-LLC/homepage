@@ -7,13 +7,11 @@
 
 ## Educational use and limitation of responsibility
 
-Darkwork Lab is provided for educational purposes, learning, experimentation, and authorized defensive research only. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use this application. Users are responsible for legal authorization, backups, permissions, verifying results, and all decisions made from the output.
+Darkworks Lab is provided for educational purposes, learning, experimentation, and authorized defensive research only. The developer and Dark Work, LLC assume no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use this application. Users are responsible for legal authorization, backups, permissions, verifying results, and all decisions made from the output.
 
 ## Summary
 
-Darkwork Lab is designed to perform its monitoring and analysis on the device where it is installed. The app does not operate a server for user data and does not intentionally transmit scan results, logs, sensor readings, filesystem results, or radio observations to Darkwork Lab.
-
-Third-party Flutter packages and platform APIs can have their own behavior. The app’s current dependency list includes networking and device-access packages; users should review package licenses and platform disclosures before distribution.
+Darkworks Lab is designed to perform its monitoring and analysis on the device where it is installed. The app does not operate a server for user data and does not intentionally transmit scan results, logs, sensor readings, filesystem results, or radio observations.
 
 ## Information processed locally
 
@@ -59,4 +57,4 @@ The app is not directed to children under 18. Do not use it to collect informati
 
 Questions: darkworkllc@gmail.com
 
-This policy may change as features and dependencies change. The current source and release documentation should be reviewed with each distribution.
+This policy may change as features change. Please review the updated policy with each release.

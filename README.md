@@ -1,8 +1,8 @@
-# Dark Work Factory Homepage
+# Dark Work, LLC Homepage
 
 ## Overview
 
-Python-based web application serving as the homepage for Dark Work Factory, a computer software and services company.
+Python-based web application serving as the homepage for Dark Work, LLC, a computer software and services company.
 
 ## Features
 

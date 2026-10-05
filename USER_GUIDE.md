@@ -1,8 +1,8 @@
-# User Guide for Dark Work Factory Homepage
+# User Guide for Dark Work, LLC Homepage
 
 ## Introduction
 
-This guide provides instructions on how to use and navigate the Dark Work Factory homepage web application.
+This guide provides instructions on how to use and navigate the Dark Work, LLC homepage web application.
 
 ## Accessing the Application
 
@@ -11,7 +11,7 @@ This guide provides instructions on how to use and navigate the Dark Work Factor
 
 ## Navigation
 
-- **Home**: Overview of Dark Work Factory and list of products.
+- **Home**: Overview of Dark Work, LLC and list of products.
 - **Product Pages**: Click on a product name to view its details and document links.
 - **Documents**: On each product page, click links to view README, User Guide, License, or Privacy Policy (if available).
 
