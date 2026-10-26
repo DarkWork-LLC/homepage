@@ -1,8 +1,8 @@
 # Nervous? User Guide
 
-Welcome to **Nervous?**, developed by **Dark Work, LLC LLC**. This user guide walks you through navigating the application, tracking your nervousness, utilizing the Flame-powered polygraph lie detector, and reviewing saved reports.
+Welcome to **Nervous?**, developed by **Dark Work, LLC**. This user guide walks you through navigating the application, tracking your nervousness, utilizing the Flame-powered polygraph lie detector, and reviewing saved reports.
 
-© 2026 Dark Work, LLC LLC. All rights reserved.
+© 2026 Dark Work, LLC. All rights reserved.
 
 ---
 
@@ -41,4 +41,4 @@ Nervous? works in two modes:
 ---
 
 ## Legal Disclaimer
-*For educational and entertainment uses only, no guarantees. The developer and Dark Work, LLC LLC provide no warranties and assume no responsibility for any actions or decisions made using this software.*
+*For educational and entertainment uses only, no guarantees. The developer and Dark Work, LLC provide no warranties and assume no responsibility for any actions or decisions made using this software.*

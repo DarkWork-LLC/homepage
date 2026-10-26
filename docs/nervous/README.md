@@ -4,11 +4,11 @@
 [![Flame Engine](https://img.shields.io/badge/Flame_Engine-1.38+-orange.svg)](https://flame-engine.org)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)]()
 
-**Nervous?** is a state-of-the-art Flutter mobile application developed by **Dark Work, LLC LLC**. It measures real-time nervousness, anxiety, and physiological stress using phone sensors (accelerometer/gyroscope tremor analysis) and paired smartwatch biometric telemetry (Heart Rate, HRV, Skin Temperature).
+**Nervous?** is a state-of-the-art Flutter mobile application developed by **Dark Work, LLC**. It measures real-time nervousness, anxiety, and physiological stress using phone sensors (accelerometer/gyroscope tremor analysis) and paired smartwatch biometric telemetry (Heart Rate, HRV, Skin Temperature).
 
 **🔒 100% Local Processing**: No third parties and no data ever leaves your phone. All telemetry, audio recordings, and session history are stored securely on-device using local SQLite storage.
 
-© 2026 Dark Work, LLC LLC. All rights reserved.
+© 2026 Dark Work, LLC. All rights reserved.
 
 ---
 
@@ -31,9 +31,9 @@
 ---
 
 ## Legal Disclaimer
-*For educational and entertainment uses only, no guarantees. The developer and Dark Work, LLC LLC provide no warranties and assume no responsibility for any actions or decisions made using this software.*
+*For educational and entertainment uses only, no guarantees. The developer and Dark Work, LLC provide no warranties and assume no responsibility for any actions or decisions made using this software.*
 
 ---
 
 ## License & Copyright
-Copyright © 2026 Dark Work, LLC LLC. All rights reserved.
+Copyright © 2026 Dark Work, LLC. All rights reserved.
