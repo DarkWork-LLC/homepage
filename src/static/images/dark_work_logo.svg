@@ -44,16 +44,16 @@
     <circle cx="20" cy="65" r="1.5" fill="#ffffff"/>
   </g>
 
-  <!-- TYPOGRAPHY: Dark Work, LLC -->
+  <!-- TYPOGRAPHY: Dark Work Factory -->
   <g transform="translate(95, 0)">
     <!-- Cyber Brackets -->
     <path d="M 0,22 L -4,22 L -4,68 L 0,68" fill="none" stroke="#444444" stroke-width="1.5"/>
 
-    <!-- Main Title Text "Dark Work, LLC" -->
+    <!-- Main Title Text "Dark Work Factory" -->
     <!-- Shadow / Glitch layer -->
-    <text x="3" y="50" font-family="'Orbitron', 'Cinzel', 'Arial Black', sans-serif" font-size="32" font-weight="900" letter-spacing="4" fill="#333333">Dark Work, LLC</text>
+    <text x="3" y="50" font-family="'Orbitron', 'Cinzel', 'Arial Black', sans-serif" font-size="32" font-weight="900" letter-spacing="4" fill="#333333">Dark Work Factory</text>
     <!-- Foreground stark white text -->
-    <text x="0" y="48" font-family="'Orbitron', 'Cinzel', 'Arial Black', sans-serif" font-size="32" font-weight="900" letter-spacing="4" fill="#ffffff">Dark Work, LLC</text>
+    <text x="0" y="48" font-family="'Orbitron', 'Cinzel', 'Arial Black', sans-serif" font-size="32" font-weight="900" letter-spacing="4" fill="#ffffff">Dark Work Factory</text>
 
     <!-- Stylized Glitch Slices through text -->
     <line x1="-2" y1="35" x2="355" y2="35" stroke="#0a0a0a" stroke-width="1.5"/>

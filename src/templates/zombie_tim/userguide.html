@@ -3,65 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zombie Tim - User Guide</title>
+    <title>Zombie Tim - User Guide - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
     <h1>🧟 Zombie Tim - User Guide 🧟</h1>
-
-    <p>Welcome to the official user guide for <strong>Zombie Tim</strong>, your favorite undead AI assistant! This guide will help you navigate the gory details of interacting with Tim and making the most of his decaying brain.</p>
-
-    <hr>
-
-    <h2>🚀 Getting Started</h2>
-    <ol>
-        <li><strong>Launch the App</strong>: Open Zombie Tim on your device.</li>
-        <li><strong>Initialize</strong>: On first run, Tim sets up his "Brain Database".</li>
-        <li><strong>Start Chatting</strong>: Use the bottom navigation to jump between screens. Type <strong><code>help</code></strong> in chat to see every command Tim knows.</li>
-    </ol>
-
-    <h2>📱 Main Interface</h2>
-    <ul>
-        <li><strong>Chat (💬)</strong>: The main interface for talking to Tim.</li>
-        <li><strong>Scan (🔍)</strong>: Tim can help you look through your device's storage.</li>
-        <li><strong>Settings (⚙️)</strong>: Customize Tim's behavior.</li>
-    </ul>
-
-    <h2>💬 Chatting with Tim</h2>
-    <h3>🧠 Special Commands</h3>
-    <ul>
-        <li><code>eat word &lt;word&gt;</code>: Tells Tim to look up a specific word.</li>
-        <li><code>vocabulary</code>: Shows a summary of what Tim has learned.</li>
-        <li><code>brain stats</code>: Displays Tim's current IQ and total word count.</li>
-        <li><code>generate code &lt;language&gt; &lt;description&gt;</code>: Tim writes code snippets.</li>
-        <li><code>magic 8 ball &lt;question&gt;</code>: Ask Tim to predict the future!</li>
-    </ul>
-
-    <h3>📝 Personal Assistant</h3>
-    <ul>
-        <li><strong>Reminders</strong>: <code>remind me to [task] at [time]</code></li>
-        <li><strong>Tasks</strong>: <code>add task [description] due [date]</code></li>
-        <li><strong>Notes</strong>: <code>take note [content]</code></li>
-    </ul>
-
-    <h3>🌍 World Information</h3>
-    <ul>
-        <li><code>what time is it</code></li>
-        <li><code>weather</code></li>
-        <li><code>news</code></li>
-        <li><code>stock [symbol]</code></li>
-    </ul>
-
-    <h3>🔒 Security Monitoring</h3>
-    <ul>
-        <li><code>security scan</code>: Perform a complete security audit.</li>
-        <li><code>check network</code>: Quick network overview.</li>
-        <li><code>check bluetooth</code>: Check Bluetooth devices and status.</li>
-    </ul>
-
-    <hr>
-    <p><em>Remember: Tim might be undead, but his passion for clean code is very much alive!</em> 🧟‍♂️💻</p>
+<p>Welcome to the official user guide for <strong>Zombie Tim</strong>, your favorite undead AI assistant! This guide will help you navigate the gory details of interacting with Tim and making the most of his decaying brain.</p>
+<hr />
+<h2>🚀 Getting Started</h2>
+<p>When you first open the app, you'll be greeted by <strong>Zombie Tim</strong> himself. He might be a bit twitchy, but he's friendly (mostly)!</p>
+<ol>
+<li><strong>Launch the App</strong>: Open Zombie Tim on your Android, iOS, Web, Linux, Windows, or macOS device.</li>
+<li><strong>Initialize</strong>: On first run, Tim sets up his "Brain Database" (SQLite) to remember your interactions.</li>
+<li><strong>Start Chatting</strong>: Use the bottom navigation to jump between screens. The Chat header always reminds you: type <strong><code>help</code></strong> to see every command Tim knows.</li>
+</ol>
+<blockquote>
+<p>💡 <strong>Lost?</strong> Type <strong><code>help</code></strong> (or <strong><code>what can you do</code></strong>) at any time. If you're building Zombie Tim yourself, see the <a href="./README.md">README</a> for <code>make</code> targets and release-signing instructions.</p>
+</blockquote>
+<hr />
+<h2>📱 Main Interface</h2>
+<p>The app has three main screens accessible via the bottom navigation bar:
+1. <strong>Chat (💬)</strong>: The main interface for talking to Tim. Interact with Tim's animated avatar and enjoy the blood-splattered UI.
+2. <strong>Scan (🔍)</strong>: Tim can help you look through your device's storage or "sniff out" new vocabulary from the internet.
+3. <strong>Settings (⚙️)</strong>: View Tim's Brain Stats, manage permissions, and reset his memory.</p>
+<hr />
+<h2>💬 Chatting with Tim</h2>
+<p>Tim loves to talk, especially about <strong>Brains</strong> and <strong>Technology</strong>.</p>
+<h3>🧠 Special Commands</h3>
+<p>Type naturally or use specific keywords to trigger Tim's specialized logic:</p>
+<ul>
+<li><strong><code>help</code></strong> or <strong><code>what can you do</code></strong>: Tim lists every command he knows (his "learning stuff" included).</li>
+<li><strong><code>eat word &lt;word&gt;</code></strong>: Tells Tim to look up a specific word and add it to his vocabulary.</li>
+<li><strong><code>vocabulary</code></strong> or <strong><code>brain stats</code></strong>: Shows a summary of what Tim has learned (words eaten, recently eaten, brain capacity, IQ).</li>
+<li><strong><code>intelligence</code></strong>: Check Tim's current IQ and rank.</li>
+<li><strong><code>magic 8 ball &lt;question&gt;</code></strong>: Ask Tim to predict the future!</li>
+<li><strong><code>summarize</code></strong>, <strong><code>remember</code></strong>, or <strong><code>session</code></strong>: Tim recounts your current session <em>and</em> his long-term memory (your name, likes, and facts you've taught him).</li>
+<li><strong><code>clear chat</code></strong>: Wipes Tim's short-term memory.</li>
+</ul>
+<h3>🧬 Teaching Tim</h3>
+<p>Tim learns permanently from plain sentences you type — no special syntax needed:
+- <strong>Facts</strong>: <em>"the capital of France is Paris"</em> — he stores it and answers later questions like <em>"what is the capital of France?"</em>, even if you rephrase them.
+- <strong>Your name</strong>: <em>"my name is …"</em> / <em>"call me …"</em> — he'll use it in greetings and recall it after restarts.
+- <strong>Your likes</strong>: <em>"I like …"</em> — accumulated over time, not overwritten.
+- <strong>Your identity</strong>: <em>"I am a developer"</em> — remembered for <code>who am i?</code>.
+- New words from every message are absorbed in bulk; Tim quietly fetches real definitions for them in the background so he never quotes a placeholder at you.</p>
+<h3>📝 Personal Assistant</h3>
+<p>Tim can help you manage your decaying life with his proactive assistant capabilities:</p>
+<h4>Reminders</h4>
+<ul>
+<li><strong><code>remind me to [task] in [duration]</code></strong>: Set a relative reminder (e.g., "remind me to sharpen teeth in 2 hours" — minutes, hours, or days all work).</li>
+<li><strong><code>remind me to [task] at [time]</code></strong>: Set a clock-time reminder (e.g., "remind me to eat brains at 5pm" or "at 17:30"). Past times roll to tomorrow.</li>
+<li><strong><code>remind me to [task]</code></strong>: No time given? Tim defaults to about an hour from now.</li>
+<li><strong><code>show reminders</code></strong>: Lists your upcoming reminders.</li>
+</ul>
+<h4>Tasks</h4>
+<ul>
+<li><strong><code>add task [description]</code></strong>: Add a new task (e.g., "add task fix the fence").</li>
+<li><strong><code>show tasks</code></strong> or <strong><code>pending tasks</code></strong>: See your pending tasks with their IDs.</li>
+<li><strong><code>overdue tasks</code></strong>: Check what you missed (Tim will judge you).</li>
+<li><strong><code>complete task [id]</code></strong>: Mark a task as finished.</li>
+</ul>
+<h4>Notes</h4>
+<ul>
+<li><strong><code>take note [content]</code></strong>: Quickly save a note.</li>
+<li><strong><code>show notes</code></strong> or <strong><code>my notes</code></strong>: List your saved notes.</li>
+<li><strong><code>find note [query]</code></strong>: Search through your saved notes.</li>
+<li><strong><code>daily summary</code></strong>: An at-a-glance summary of your day.</li>
+</ul>
+<h3>🌍 World Information</h3>
+<p>Ask Tim about the world around you:
+- <strong><code>what time is it</code></strong> or <strong><code>current time</code></strong>: Get the current time with zombie flair.
+- <strong><code>weather</code></strong> or <strong><code>weather in [city]</code></strong>: Check the weather (defaults to your location if no city specified).
+- <strong><code>news</code></strong> or <strong><code>latest news</code></strong>: Get the latest headlines from the internet.
+- <strong><code>stock [symbol]</code></strong>: Ask about stock prices (Tim has his own unique perspective on capitalism).</p>
+<h3>🩺 System Health (all platforms)</h3>
+<ul>
+<li><strong><code>system health</code></strong> or <strong><code>health check</code></strong>: Tim checks up on your device.</li>
+<li><strong><code>check updates</code></strong>: Look for OS updates.</li>
+<li><strong><code>run diagnostics</code></strong>: Check for device issues (disk, memory, CPU).</li>
+<li><strong><code>update system</code></strong>: Install available updates (with Tim's guidance).</li>
+</ul>
+<h3>💻 System Integration (Desktop Only)</h3>
+<p>On Linux, Windows, and macOS, Tim can help with system tasks:
+- <strong><code>system status</code></strong> or <strong><code>system info</code></strong>: Get a report about your system (OS, version, uptime, etc.).
+- <strong><code>suggest tasks</code></strong> or <strong><code>what should I do</code></strong>: Platform-specific maintenance ideas.
+- <strong><code>run command [command]</code></strong>: Execute system commands (Linux/Windows only).
+- <strong><code>run admin command [command]</code></strong>: Run commands with administrator privileges (Linux/Windows only).</p>
+<h3>🔒 Security Monitoring</h3>
+<p>Tim can perform security audits on your system:
+- <strong><code>security scan</code></strong> or <strong><code>check security</code></strong>: Perform a complete security audit including network and Bluetooth checks.
+- <strong><code>check network</code></strong> or <strong><code>network status</code></strong>: Quick network overview showing active connections.
+- <strong><code>check bluetooth</code></strong> or <strong><code>bluetooth status</code></strong>: Check Bluetooth devices and status.</p>
+<h3>Interaction Tips</h3>
+<ul>
+<li><strong>Talk about Brains</strong>: He finds it highly engaging.</li>
+<li><strong>Loyalty</strong>: Tim is a loyal subject. Treat him well!</li>
+</ul>
+<hr />
+<h2>🔍 The Scan Screen</h2>
+<p>Use this screen to help Tim "forage" for information on your device or the internet.</p>
+<h3>File Hunting</h3>
+<ul>
+<li><strong>Scan Brains (Internal)</strong>: Scans the app's internal storage.</li>
+<li><strong>Scan Graveyard (External)</strong>: Scans your device's external storage.</li>
+<li><strong>Sniff Directory</strong>: Pick a specific folder for Tim to examine.</li>
+<li><strong>Chew File</strong>: Have Tim examine a single file.</li>
+</ul>
+<h3>Vocabulary Feasts</h3>
+<ul>
+<li><strong>Mass Vocabulary Feast</strong>: Tim reaches out to the internet and devours <strong>5,000 random words</strong> at once (fetched in parallel, then stored in one transaction) to boost his IQ instantly. Definitions are filled in from the dictionary API where available.</li>
+</ul>
+<hr />
+<h2>⚙️ Settings &amp; Stats</h2>
+<p>The Settings screen has four sections:</p>
+<h3>🧠 Brain Stats</h3>
+<ul>
+<li><strong>Conversations</strong>, <strong>Words Learned</strong>, <strong>Knowledge Base</strong>, <strong>Activities</strong>, and <strong>Database Size</strong> — live counters for everything Tim remembers.</li>
+</ul>
+<h3>🔑 Permissions</h3>
+<ul>
+<li><strong>Read Storage</strong> / <strong>Write Storage</strong>: Status of the storage permissions Tim uses for file scanning.</li>
+</ul>
+<h3>🩺 System Health</h3>
+<p>Tim keeps an eye on the machine he's shambling around in:
+- <strong>Run Vitals Check</strong>: Gathers a health report and shows a <strong>Health Score</strong> (0–100) along with:
+    - <strong>Disk Usage</strong> — used percentage of total space
+    - <strong>Memory Usage</strong> — used percentage of total RAM
+    - <strong>CPU Load</strong> — current load percentage
+    - <strong>Uptime</strong> — how long the device has been running
+    - <strong>Processes</strong> — number of running processes
+- <strong>Detected Issues</strong>: Any problems Tim sniffs out (low disk, heavy memory use, high load, etc.).
+- <strong>Install Updates</strong>: Appears when Tim finds OS updates. Mobile platforms are report-only — Tim can only actually install desktop OS updates.</p>
+<p>The same information is available from chat with <strong><code>system health</code></strong>, <strong><code>check updates</code></strong>, <strong><code>run diagnostics</code></strong>, and <strong><code>update system</code></strong>.</p>
+<h3>💀 Danger Zone</h3>
+<ul>
+<li><strong>Clear Brain</strong>: Deletes <strong>all conversations, learned words, and knowledge</strong> — a true reset for Tim's memory. (This cannot be undone!)</li>
+</ul>
+<hr />
+<h2>🆘 Support &amp; Feedback</h2>
+<p>If Tim becomes too "braindead" or encounters an error:
+1.  Go to <strong>Settings</strong> -&gt; <strong>Danger Zone</strong> -&gt; <strong>Clear Brain</strong> to reset his memory (conversations, words, and knowledge).
+2.  Check the <code>README.md</code> for project information.
+3.  Contact the creators at <code>darkworkllc@gmail.com</code>.</p>
+<hr />
+<p><em>Remember: Tim might be undead, but his passion for clean code is very much alive!</em> 🧟‍♂️💻</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

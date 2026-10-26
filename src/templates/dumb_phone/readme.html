@@ -3,12 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dumb Phone - README</title>
+    <title>Dumb Phone - README - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
-    {% include 'dumb_phone/readme_content.html' %}
+    <h1>Dumb Phone</h1>
+<p>Dumb Phone is a powerful network security and privacy application for Android. It leverages the native VPN Service API to provide deep packet inspection and filtering, allowing you to transform your smartphone into a secure, focused device.</p>
+<p><strong>Package Name:</strong> <code>com.dumbphone.dumbphone</code></p>
+<h2>Key Features</h2>
+<h3>🛡️ Dual-Mode Protection</h3>
+<ul>
+<li><strong>Dumb Phone Mode</strong>: A strict "Default Block" policy. Only system-essential services (telephony, SMS) and user-whitelisted apps can access the network.</li>
+<li><strong>Soft Firewall Mode</strong>: A "Default Allow" policy with intelligent filtering. It blocks traffic based on your custom rules and global threat intelligence.</li>
+</ul>
+<h3>🌍 Geo-Fencing &amp; Blocklists</h3>
+<ul>
+<li><strong>Continent-Based Protection</strong>: Instantly block connections based on global regions: <strong>North America (NA)</strong>, <strong>South America (SA)</strong>, <strong>Europe (EU)</strong>, <strong>Asia (AS)</strong>, <strong>Africa (AF)</strong>, and <strong>Oceania (OC)</strong>. Includes pre-loaded data for over 100,000 IP ranges.</li>
+<li><strong>Lazy Loading &amp; Parallel Sync</strong>: IP ranges are downloaded in parallel and loaded asynchronously in the background, ensuring the UI remains responsive during updates.</li>
+<li><strong>Update Notifications</strong>: Receive system alerts when threat intelligence data is successfully synchronized in the background.</li>
+<li><strong>Smart Refresh &amp; Self-Healing</strong>: Periodic recomputation of statistics from local logs ensures 100% data integrity, with a weekly update policy to minimize battery and data usage.</li>
+<li><strong>Custom Entries</strong>: Add your own blocklist groups with manual IP or CIDR range entries, supported by the <strong>P2P</strong> blocklist.</li>
+</ul>
+<h3>⚙️ Granular Control</h3>
+<ul>
+<li><strong>Custom Rules</strong>: Create allow/block rules for specific IP addresses, ports, and protocols (TCP/UDP). The dedicated rules-management screen is not yet wired into navigation (planned) — see the User Guide for current status.</li>
+<li><strong>Live Monitoring</strong>: Searchable connection logs with detailed metadata including destination, port, and responsible process. Logs are automatically grouped and summarized for clarity.</li>
+</ul>
+<h3>🎨 Modern Interface</h3>
+<ul>
+<li><strong>Clean Design</strong>: Beautiful, intuitive interface with smooth animations and Material Design 3 principles.</li>
+<li><strong>Dark Mode</strong>: Full support for system-wide dark theme.</li>
+<li><strong>Elastic UI</strong>: Fully responsive and optimized for all screen sizes, including support for Linux desktop, phones, and tablets. UI elements dynamically adapt to prevent overflows and layout issues.</li>
+</ul>
+<h2>Privacy First</h2>
+<ul>
+<li><strong>100% Local</strong>: All filtering and logging occur entirely on your device.</li>
+<li><strong>No Data Export</strong>: Your network activity never leaves the device.</li>
+<li><strong>Clean Slate</strong>: Automatic database wipe on initial installation ensures a secure and optimized state for the grouped protection model.</li>
+<li><strong>Transparent Code</strong>: Security logic implemented in Kotlin and Dart.</li>
+</ul>
+<h2>Legal Disclaimer</h2>
+<p>This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact darkworkllc@gmail.com for support.</p>
+<h2>Development</h2>
+<p>Use the provided <code>Makefile</code> for common tasks:
+- <code>make android</code>: Build release APK.
+- <code>make bundle</code>: Build AAB for Play Store.
+- <code>make linux</code>: Build Linux desktop executable.
+- <code>make dumbphone.zip</code>: Build debug APK with verbose logging.
+- <code>make test</code>: Run unit tests.
+- <code>make lint</code>: Run code analysis and linting.
+- <code>make format</code>: Format code with dart format.
+- <code>make container-start</code>: Start development environment in a container.</p>
+<h2>Documentation</h2>
+<ul>
+<li><strong><a href="USER_GUIDE.md">User Guide</a></strong>: Detailed usage instructions for all features.</li>
+<li><strong><a href="GOOGLE_PLAY_GUIDE.md">Google Play Guide</a></strong>: Step-by-step guide for publishing to Google Play Store.</li>
+<li><strong><a href="PRIVACY.MD">Privacy Policy</a></strong>: Complete privacy policy and data handling information.</li>
+</ul>
+<h2>Tech Stack</h2>
+<ul>
+<li><strong>Framework</strong>: Flutter 3.47+</li>
+<li><strong>Language</strong>: Dart 3.x, Kotlin 2.2+</li>
+<li><strong>Platform</strong>: Android (API 25–36) &amp; Linux</li>
+<li><strong>Build System</strong>: Gradle 9.4.1, AGP 8.13.0</li>
+<li><strong>Architecture</strong>: MVVM with ViewModel pattern</li>
+<li><strong>State Management</strong>: ValueListenable-based reactive state</li>
+<li><strong>Database</strong>: SQLite (sqflite) with FFI support for Desktop</li>
+</ul>
+<h2>Building from Source</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Flutter SDK (3.24.0 or higher)</li>
+<li>Android SDK</li>
+<li>JDK 17+</li>
+</ul>
+<h3>Quick Start</h3>
+<pre><code class="language-bash"># Install dependencies
+flutter pub get
+
+# Run linter
+make lint
+
+# Run tests
+make test
+
+# Build release APK
+make android
+
+# Build release bundle for Play Store
+make bundle
+</code></pre>
+<h2>License</h2>
+<p>Proprietary — Copyright (c) 2026 Dark Work, LLC. All rights reserved. See <a href="LICENSE">LICENSE</a> for the full terms.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

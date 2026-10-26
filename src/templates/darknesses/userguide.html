@@ -3,335 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darkness BBS - User Guide - Dark Work, LLC</title>
+    <title>Darknesses BBS - User Guide - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
     <h1>Darkness BBS — User Guide</h1>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#login--registration">Login &amp; Registration</a></li>
+<li><a href="#game-commands">Game Commands</a></li>
+<li><a href="#world-structure">World Structure</a></li>
+<li><a href="#combat-system">Combat System</a></li>
+<li><a href="#items--equipment">Items &amp; Equipment</a></li>
+<li><a href="#character-progression">Character Progression</a></li>
+<li><a href="#karma--reputation">Karma &amp; Reputation</a></li>
+<li><a href="#stealth-system">Stealth System</a></li>
+<li><a href="#drug--addiction-system">Drug &amp; Addiction System</a></li>
+<li><a href="#npc-aggression--stalking">NPC Aggression &amp; Stalking</a></li>
+<li><a href="#party-system">Party System</a></li>
+<li><a href="#server-administration">Server Administration</a></li>
+</ol>
+<hr />
+<h2>Overview</h2>
+<p><strong>Darkness BBS</strong> is a multi-user, terminal-style cyberpunk RPG inspired by classic BBS games like MajorMUD. Players explore a procedurally generated grid, engage in tactical combat, customize their builds via manual stat training, and compete with other users in a gritty, neon-soaked world.</p>
+<p>Key Features:
+- <strong>Massive Procedural World</strong>: 8 distinct sectors with 200+ rooms.
+- <strong>Deep Character Customization</strong>: 10 races and 13 classes with unique abilities and traits.
+- <strong>Manual Stat Training</strong>: Earn 1 point per level to spend on specific attributes.
+- <strong>Tactical Combat</strong>: PvP support (+/- 3 levels), weapon speed, and elemental damage (fire &gt; air &gt; earth &gt; water &gt; fire).
+- <strong>Karma System</strong>: Alignment from -100 (Villain) to +100 (Saint).
+- <strong>Stealth System</strong>: Hide and perform backstab attacks with bonus damage.
+- <strong>Drug &amp; Addiction</strong>: Temporary stat boosts with dependency risk and withdrawal damage.
+- <strong>Leaderboards</strong>: Competitive ranking of the top adventurers and a "Wall of Death".
+- <strong>Party System</strong>: Team up with up to 3 players to explore the grid together.
+- <strong>AI Bot System</strong>: Autonomous AI players that wander, fight, and interact.</p>
+<hr />
+<h2>Getting Started</h2>
+<ol>
+<li>Navigate to the terminal in your browser.</li>
+<li>Click <strong>"Initialize New Profile"</strong> to create a character.</li>
+<li>Enter a handle (username) and password.</li>
+<li>Select your <strong>Race</strong> (Augmentation Path) and <strong>Class</strong> (Operational Class).</li>
+<li>Optionally customize your 6 base stats (STR, INT, WIL, AGI, HEA, CHA) — total must not exceed 80 points.</li>
+<li>Log in and arrive at <strong>The Neon Hub</strong>, the grid's central safe zone.</li>
+</ol>
+<hr />
+<h2>Login &amp; Registration</h2>
+<h3>Races (Augmentation Paths)</h3>
+<p>Each race grants a specific set of stat modifiers and a unique <strong>Race Trait</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Race</th>
+<th>Modifiers</th>
+<th>Special Trait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cyborg</strong></td>
+<td>STR+5, HEA+2, AGI-2, INT+2</td>
+<td><strong>Cybernetic Resilience</strong>: +10% resistance to debuffs.</td>
+</tr>
+<tr>
+<td><strong>Bio-hacked</strong></td>
+<td>HEA+5, STR+2, CHA-2</td>
+<td><strong>Adrenal Efficiency</strong>: 20% faster healing, reduced addiction.</td>
+</tr>
+<tr>
+<td><strong>Android</strong></td>
+<td>INT+8, WIL+2, CHA-5, HEA-2</td>
+<td><strong>Systematic Mind</strong>: +15% mana efficiency, mental immunity.</td>
+</tr>
+<tr>
+<td><strong>Mutant</strong></td>
+<td>Random (+7/-3)</td>
+<td><strong>Adaptive Biology</strong>: Stats can exceed normal caps by 5.</td>
+</tr>
+<tr>
+<td><strong>Human</strong></td>
+<td>CHA+10, WIL+5, STR-5, HEA-5</td>
+<td><strong>Versatile Potential</strong>: Gains 1.5x stat points on level up.</td>
+</tr>
+<tr>
+<td><strong>Void-Walker</strong></td>
+<td>WIL+12, AGI+5, STR-8, HEA-4</td>
+<td><strong>Phase Shift</strong>: 10% chance to dodge any attack.</td>
+</tr>
+<tr>
+<td><strong>Synth-Soul</strong></td>
+<td>INT+15, CHA-10</td>
+<td><strong>Digital Presence</strong>: +20% stealth effectiveness.</td>
+</tr>
+<tr>
+<td>**Orc, AGI+10, INT-10, CHA-5</td>
+<td><strong>Overclocked</strong>: +1 extra attack per combat round.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Elf</strong></td>
+<td>AGI+8, WIL+4, HEA-5</td>
+<td><strong>Ancient Grace</strong>: +10% critical hit chance.</td>
+</tr>
+<tr>
+<td><strong>Goblin</strong></td>
+<td>CHA+10, AGI+5, STR-8</td>
+<td><strong>Street Cunning</strong>: +15% chance for extra loot.</td>
+</tr>
+</tbody>
+</table>
+<h3>Stats Reference</h3>
+<ul>
+<li><strong>STR (Strength)</strong>: Physical power. Increases Attack and carrying capacity. Essential for melee classes.</li>
+<li><strong>AGI (Agility)</strong>: Speed and reflexes. Increases Defense, crit chance, and stealth effectiveness. Key for dodging and Thief/Ninja.</li>
+<li><strong>HEA (Health)</strong>: Physical resilience. Increases max HP. Vital for survivability.</li>
+<li><strong>INT (Intelligence)</strong>: Mental acuity. Powers tech, netrunning, and spellcasting. Increases mana for some classes.</li>
+<li><strong>WIL (Willpower)</strong>: Mental fortitude. Increases max Mana and resistance to mind effects. Core for Priests.</li>
+<li><strong>CHA (Charisma)</strong>: Social presence. Used by Fixers and Tricksters. Affects NPC interactions and some abilities.</li>
+</ul>
+<h3>Classes (Operational Classes)</h3>
+<p>Abilities are learned at levels 1, 5, 10, 15, 20, 25, and 30.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Starting Focus</th>
+<th>Specialization</th>
+<th>Gear Restrictions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Street Samurai</strong></td>
+<td>ATK, STR, AGI</td>
+<td>Multi-strike Melee</td>
+<td>All armor, One/Two-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Netrunner</strong></td>
+<td>INT, Mana</td>
+<td>System Hacking (Water/Air)</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Techie</strong></td>
+<td>INT, WIL, DEF</td>
+<td>Drones &amp; Engineering</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Medie</strong></td>
+<td>HEA, HP</td>
+<td>Healing &amp; Detoxification</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Fixer</strong></td>
+<td>CHA, Money</td>
+<td>Credit Siphoning &amp; Contracts</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Thief</strong></td>
+<td>AGI, ATK</td>
+<td>Stealth &amp; Backstabbing</td>
+<td>Leather armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Heavy</strong></td>
+<td>STR, HEA, DEF</td>
+<td>Tanking &amp; Earth Damage</td>
+<td>All armor, One/Two-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Psycher</strong></td>
+<td>WIL, Mana</td>
+<td>Neural Energy &amp; Mind Control</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Warlock</strong></td>
+<td>INT, WIL, Mana</td>
+<td>Debuffs &amp; Chaos</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Priest</strong></td>
+<td>WIL, HEA, HP</td>
+<td>Divine Restoration &amp; Air Damage</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Trickster</strong></td>
+<td>CHA, AGI</td>
+<td>Luck &amp; Confusion</td>
+<td>Leather/Light armor, One-handed weapons</td>
+</tr>
+<tr>
+<td><strong>Jade Dragon</strong></td>
+<td>AGI, STR, DEF</td>
+<td>Unarmed Martial Arts</td>
+<td>Light armor only, Jade weapons</td>
+</tr>
+<tr>
+<td><strong>Ninja</strong></td>
+<td>AGI, ATK</td>
+<td>Stealth &amp; Thrown Weapons</td>
+<td>Light armor only, Ninja weapons</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Class Strategies:</strong>
+- <strong>Street Samurai</strong>: Physical combat specialist. High attack, excels in direct confrontations.
+- <strong>Netrunner</strong>: Tech-hacker. Uses water/ice and air-based attacks. High mana pool, debuffs enemies.
+- <strong>Techie</strong>: Drone operator. Earth and fire damage, can heal with nanobots.
+- <strong>Medie</strong>: Field medic. Healing and support abilities, can deal water/rot damage.
+- <strong>Fixer</strong>: Social manipulator. Drains credits, calls in attacks.
+- <strong>Thief</strong>: Stealth assassin. Backstab crits, poison, smoke bombs.
+- <strong>Heavy</strong>: Tank specialist. High HP and defense, earth-based AOE attacks.
+- <strong>Psycher</strong>: Psychic warrior. Mind-based attacks, telekinesis, shields.
+- <strong>Warlock</strong>: Dark spellcaster. Curses, chaos damage, blood pacts.
+- <strong>Priest</strong>: Holy healer. Healing, blessings, divine shields.
+- <strong>Trickster</strong>: Chaos agent. Random effects, stealth, luck-based abilities.
+- <strong>Jade Dragon</strong>: Martial artist. Chi-based attacks, unarmed combat bonus.
+- <strong>Ninja</strong>: Shadow warrior. Stealth, teleport, kunai throws, high crit from concealment.</p>
+<hr />
+<h2>Game Commands</h2>
+<h3>Navigation</h3>
+<ul>
+<li><code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>: Movement.</li>
+<li><code>EXIT</code>: Log out safely.</li>
+</ul>
+<h3>Information</h3>
+<ul>
+<li><code>L</code> / <code>LOOK</code>: Scan sector. <code>LOOK &lt;target&gt;</code>: Examine entity.</li>
+<li><code>WHO</code>: List active nodes.</li>
+<li><code>TOP</code>: Top 25 ranking.</li>
+<li><code>WALL</code>: Top 25 deaths.</li>
+<li><code>ST</code> / <code>STATUS</code>: Detailed profile.</li>
+<li><code>I</code> / <code>INVENTORY</code>: List gear.</li>
+<li><code>HELP</code> / <code>?</code>: Command manual.</li>
+</ul>
+<h3>Communication</h3>
+<ul>
+<li><code>SAY &lt;msg&gt;</code>: Local chat.</li>
+<li><code>BROADCAST &lt;msg&gt;</code>: Global chat.</li>
+</ul>
+<h3>Combat &amp; Action</h3>
+<ul>
+<li><code>A &lt;target&gt;</code>: Attack one round.</li>
+<li><code>AA &lt;target&gt;</code>: Auto-attack until victory/defeat.</li>
+<li><code>&lt;ABILITY&gt; &lt;target&gt;</code>: Use class skill (e.g., <code>HCK</code>, <code>BLD</code>, <code>PTC</code>).</li>
+<li><code>STEALTH</code> / <code>SNEAK</code>: Hide (influenced by AGI and Class).</li>
+<li><code>REST</code>: Recover HP/Mana (requires standing still).</li>
+</ul>
+<h3>Items</h3>
+<ul>
+<li><code>USE &lt;item&gt;</code>: Consumables/Drugs.</li>
+<li><code>GET &lt;item&gt;</code> / <code>DROP &lt;item&gt;</code>: Ground interaction.</li>
+<li><code>EQUIP &lt;item&gt;</code>: Manage hardware.</li>
+<li><code>LIST</code> / <code>BUY</code> / <code>SELL</code>: Commerce.</li>
+<li><code>SELLALL</code>: Sell all unequipped hardware in your inventory.</li>
+</ul>
+<hr />
+<h2>Combat System</h2>
+<h3>Damage &amp; Crits</h3>
+<p>Damage: <code>max(1, ATK - DEF/2)</code> ± variance. 
+Critical Hits: 2.0x damage. Chance based on AGI (physical) or INT (abilities).</p>
+<h3>Elemental Wheel</h3>
+<ul>
+<li><strong>Fire</strong> &gt; <strong>Air</strong> &gt; <strong>Earth</strong> &gt; <strong>Water</strong> &gt; <strong>Fire</strong></li>
+<li>Strength: 1.5x damage. Weakness: 0.5x damage.</li>
+</ul>
+<h3>Weapon Speed</h3>
+<p>10 Speed Bonus = 1 extra attack/round.
+10 Agility = 1 extra attack/round.</p>
+<hr />
+<h2>Party System</h2>
+<p>Team up with other players to explore and move together.</p>
+<ul>
+<li><code>PARTY CREATE</code>: Start a new party as leader.</li>
+<li><code>PARTY INVITE &lt;player&gt;</code>: Invite a player in your current room.</li>
+<li><code>PARTY ACCEPT</code>: Join a party after receiving an invite.</li>
+<li><code>PARTY LEAVE</code>: Exit your current party.</li>
+<li><code>PARTY STATUS</code>: See current members.</li>
+<li><strong>Group Movement</strong>: When the leader moves, all online party members move with them.</li>
+</ul>
+<hr />
+<h2>Server Administration</h2>
+<ul>
+<li><code>make repair</code>: Full database reset (wipes players).</li>
+<li><code>make clean</code>: Wipes world data but <strong>keeps players</strong>.</li>
+<li><code>make init</code>: Generates new world state.</li>
+<li><code>python manage.py process_bots</code>: Starts the AI daemon.</li>
+</ul>
+<hr />
+<h2>MUD Client Setup</h2>
+<p>Darkness BBS supports traditional MUD clients like Mudlet, MUSHclient, and any standard Telnet client.</p>
+<h3>Prerequisites</h3>
+<ol>
+<li><strong>Create your character</strong> using the web interface first (character creation is web-only)</li>
+<li><strong>Start the MUD server</strong>: <code>python manage.py start_mud_server</code></li>
+<li><strong>Note the connection details</strong>: By default, the server listens on port 4000</li>
+</ol>
+<h3>Connecting with a MUD Client</h3>
+<h4>Mudlet</h4>
+<ol>
+<li>Open Mudlet</li>
+<li>Click <strong>"Connect"</strong> → <strong>"Connect to..."</strong></li>
+<li>Enter your server details:
+   - <strong>Host</strong>: <code>localhost</code> (or your server's IP address)
+   - <strong>Port</strong>: <code>4000</code>
+   - <strong>Name</strong>: <code>Darkness BBS</code></li>
+<li><strong>Important</strong>: Uncheck the <strong>"Use SSL/TLS"</strong> option (the server uses plain Telnet, not encrypted)</li>
+<li>Click <strong>"Connect"</strong></li>
+<li>Log in with your handle and password when prompted</li>
+</ol>
+<p><strong>Optional Mudlet Profile Setup:</strong>
+- Enable <strong>ANSI Colors</strong> in Settings → General
+- Set <strong>Command Separator</strong> to <code>;</code> if you want to chain commands
+- Create aliases for common commands (e.g., <code>l</code> for <code>look</code>)</p>
+<h4>MUSHclient</h4>
+<ol>
+<li>Open MUSHclient</li>
+<li>Click <strong>"File"</strong> → <strong>"Connect"</strong></li>
+<li>Enter connection details:
+   - <strong>Host</strong>: <code>localhost</code> (or your server's IP)
+   - <strong>Port</strong>: <code>4000</code></li>
+<li>Click <strong>"OK"</strong></li>
+<li>Log in with your handle and password</li>
+</ol>
+<h4>Generic Telnet Client</h4>
+<p>From a terminal/command prompt:</p>
+<pre><code class="language-bash">telnet localhost 4000
+</code></pre>
+<p>Or using netcat:</p>
+<pre><code class="language-bash">nc localhost 4000
+</code></pre>
+<h3>MUD Client Configuration Tips</h3>
+<h4>Recommended Settings</h4>
+<ul>
+<li><strong>Encoding</strong>: UTF-8 or ASCII</li>
+<li><strong>Line Endings</strong>: CRLF (\r\n)</li>
+<li><strong>Terminal Type</strong>: ANSI or VT100</li>
+<li><strong>Character Set</strong>: ISO 8859-1 or UTF-8</li>
+<li><strong>Echo</strong>: Local (client-side echo)</li>
+</ul>
+<h4>Mudlet-Specific Tips</h4>
+<ol>
+<li><strong>Enable ANSI Colors</strong>: Settings → General → Check "Use ANSI colors"</li>
+<li><strong>Set Prompt</strong>: The game sends a status line after each command showing:
+   <code>HP:100/100|MA:20/20|LV:1|CR:25|[Neutral]</code></li>
+<li><strong>Create Aliases</strong> (optional):
+   <code>l = look
+   n = north
+   s = south
+   e = east
+   w = west
+   i = inventory
+   st = status</code></li>
+</ol>
+<h4>MUSHclient-Specific Tips</h4>
+<ol>
+<li><strong>Enable ANSI</strong>: File → World Properties → General → Check "Use ANSI colors"</li>
+<li><strong>Set Command Separator</strong>: Use <code>;</code> to chain commands (e.g., <code>n;look</code>)</li>
+<li><strong>Create Triggers</strong> (optional):
+   - Trigger on: <code>HP:(\d+)/(\d+)</code> to track health
+   - Trigger on: <code>\[(.*?)\]</code> to track karma alignment</li>
+</ol>
+<h3>Telnet Protocol Notes</h3>
+<ul>
+<li>The server uses standard Telnet protocol (port 23 by default, but configurable)</li>
+<li>ANSI escape codes are used for screen clearing and text formatting</li>
+<li>Line endings are CRLF (\r\n)</li>
+<li>The server does not require Telnet option negotiation (works with basic clients)</li>
+<li>Character creation must be done via the web interface</li>
+</ul>
+<h3>Troubleshooting</h3>
+<p><strong>Can't connect:</strong>
+- Ensure the MUD server is running: <code>python manage.py start_mud_server</code>
+- Check firewall settings allow port 4000
+- Verify the server is listening: <code>netstat -an | grep 4000</code></p>
+<p><strong>Garbled text:</strong>
+- Enable ANSI colors in your client
+- Check encoding settings (use UTF-8 or ASCII)
+- Ensure line endings are set to CRLF</p>
+<p><strong>Commands not working:</strong>
+- Make sure you're logged in (you should see a room description)
+- Check that you're typing commands in lowercase (most commands are case-insensitive)
+- Use <code>HELP</code> or <code>?</code> to see available commands</p>
+<p><strong>Disconnections:</strong>
+- The server has a 20-minute inactivity timeout
+- Use <code>EXIT</code> to log out cleanly
+- If disconnected unexpectedly, simply reconnect and log in again</p>
+<h3>Running Both Web and MUD Simultaneously</h3>
+<p>You can run both the web interface and MUD server at the same time:</p>
+<pre><code class="language-bash"># Terminal 1: Start Django web server
+python manage.py runserver
 
-    <h2>Table of Contents</h2>
-    <ol>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#getting-started">Getting Started</a></li>
-        <li><a href="#login-registration">Login & Registration</a></li>
-        <li><a href="#game-commands">Game Commands</a></li>
-        <li><a href="#world-structure">World Structure</a></li>
-        <li><a href="#combat-system">Combat System</a></li>
-        <li><a href="#items-equipment">Items & Equipment</a></li>
-        <li><a href="#character-progression">Character Progression</a></li>
-        <li><a href="#karma-reputation">Karma & Reputation</a></li>
-        <li><a href="#stealth-system">Stealth System</a></li>
-        <li><a href="#drug-addiction">Drug & Addiction System</a></li>
-        <li><a href="#npc-aggression">NPC Aggression & Stalking</a></li>
-        <li><a href="#party-system">Party System</a></li>
-        <li><a href="#mud-client-setup">MUD Client Setup</a></li>
-    </ol>
-
-    <hr>
-
-    <h2 id="overview">Overview</h2>
-    <p><strong>Darkness BBS</strong> is a multi-user, terminal-style cyberpunk RPG inspired by classic BBS games like MajorMUD. Players explore a procedurally generated grid, engage in tactical combat, customize their builds via manual stat training, and compete with other users in a gritty, neon-soaked world.</p>
-
-    <p>Key Features:</p>
-    <ul>
-        <li><strong>Massive Procedural World</strong>: 8 distinct sectors with 200+ rooms.</li>
-        <li><strong>Deep Character Customization</strong>: 10 races and 13 classes with unique abilities and traits.</li>
-        <li><strong>Manual Stat Training</strong>: Earn 1 point per level to spend on specific attributes.</li>
-        <li><strong>Tactical Combat</strong>: PvP support (+/- 3 levels), weapon speed, and elemental damage (fire > air > earth > water > fire).</li>
-        <li><strong>Karma System</strong>: Alignment from -100 (Villain) to +100 (Saint).</li>
-        <li><strong>Stealth System</strong>: Hide and perform backstab attacks with bonus damage.</li>
-        <li><strong>Drug & Addiction</strong>: Temporary stat boosts with dependency risk and withdrawal damage.</li>
-        <li><strong>Leaderboards</strong>: Competitive ranking of the top adventurers and a "Wall of Death".</li>
-        <li><strong>Party System</strong>: Team up with up to 3 players to explore the grid together.</li>
-        <li><strong>AI Bot System</strong>: Autonomous AI players that wander, fight, and interact.</li>
-    </ul>
-
-    <h2 id="getting-started">Getting Started</h2>
-    <ol>
-        <li>Navigate to the terminal in your browser.</li>
-        <li>Click <strong>"Initialize New Profile"</strong> to create a character.</li>
-        <li>Enter a handle (username) and password.</li>
-        <li>Select your <strong>Race</strong> (Augmentation Path) and <strong>Class</strong> (Operational Class).</li>
-        <li>Optionally customize your 6 base stats (STR, INT, WIL, AGI, HEA, CHA) — total must not exceed 80 points.</li>
-        <li>Log in and arrive at <strong>The Neon Hub</strong>, the grid's central safe zone.</li>
-    </ol>
-
-    <h2 id="login-registration">Login & Registration</h2>
-
-    <h3>Races (Augmentation Paths)</h3>
-    <p>Each race grants a specific set of stat modifiers and a unique <strong>Race Trait</strong>:</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Race</th>
-                <th>Modifiers</th>
-                <th>Special Trait</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Cyborg</strong></td>
-                <td>STR+5, HEA+2, AGI-2, INT+2</td>
-                <td><strong>Cybernetic Resilience</strong>: +10% resistance to debuffs.</td>
-            </tr>
-            <tr>
-                <td><strong>Bio-hacked</strong></td>
-                <td>HEA+5, STR+2, CHA-2</td>
-                <td><strong>Adrenal Efficiency</strong>: 20% faster healing, reduced addiction.</td>
-            </tr>
-            <tr>
-                <td><strong>Android</strong></td>
-                <td>INT+8, WIL+2, CHA-5, HEA-2</td>
-                <td><strong>Systematic Mind</strong>: +15% mana efficiency, mental immunity.</td>
-            </tr>
-            <tr>
-                <td><strong>Mutant</strong></td>
-                <td>Random (+7/-3)</td>
-                <td><strong>Adaptive Biology</strong>: Stats can exceed normal caps by 5.</td>
-            </tr>
-            <tr>
-                <td><strong>Human</strong></td>
-                <td>CHA+10, WIL+5, STR-5, HEA-5</td>
-                <td><strong>Versatile Potential</strong>: Gains 1.5x stat points on level up.</td>
-            </tr>
-            <tr>
-                <td><strong>Void-Walker</strong></td>
-                <td>WIL+12, AGI+5, STR-8, HEA-4</td>
-                <td><strong>Phase Shift</strong>: 10% chance to dodge any attack.</td>
-            </tr>
-            <tr>
-                <td><strong>Synth-Soul</strong></td>
-                <td>INT+15, CHA-10</td>
-                <td><strong>Digital Presence</strong>: +20% stealth effectiveness.</td>
-            </tr>
-            <tr>
-                <td><strong>Orc</strong></td>
-                <td>AGI+10, INT-10, CHA-5</td>
-                <td><strong>Overclocked</strong>: +1 extra attack per combat round.</td>
-            </tr>
-            <tr>
-                <td><strong>Elf</strong></td>
-                <td>AGI+8, WIL+4, HEA-5</td>
-                <td><strong>Ancient Grace</strong>: +10% critical hit chance.</td>
-            </tr>
-            <tr>
-                <td><strong>Goblin</strong></td>
-                <td>CHA+10, AGI+5, STR-8</td>
-                <td><strong>Street Cunning</strong>: +15% chance for extra loot.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>Stats Reference</h3>
-    <ul>
-        <li><strong>STR (Strength)</strong>: Physical power. Increases Attack and carrying capacity. Essential for melee classes.</li>
-        <li><strong>AGI (Agility)</strong>: Speed and reflexes. Increases Defense, crit chance, and stealth effectiveness. Key for dodging and Thief/Ninja.</li>
-        <li><strong>HEA (Health)</strong>: Physical resilience. Increases max HP. Vital for survivability.</li>
-        <li><strong>INT (Intelligence)</strong>: Mental acuity. Powers tech, netrunning, and spellcasting. Increases mana for some classes.</li>
-        <li><strong>WIL (Willpower)</strong>: Mental fortitude. Increases max Mana and resistance to mind effects. Core for Priests.</li>
-        <li><strong>CHA (Charisma)</strong>: Social presence. Used by Fixers and Tricksters. Affects NPC interactions and some abilities.</li>
-    </ul>
-
-    <h3>Classes (Operational Classes)</h3>
-    <p>Abilities are learned at levels 1, 5, 10, 15, 20, 25, and 30.</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Class</th>
-                <th>Starting Focus</th>
-                <th>Specialization</th>
-                <th>Gear Restrictions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Street Samurai</strong></td>
-                <td>ATK, STR, AGI</td>
-                <td>Multi-strike Melee</td>
-                <td>All armor, One/Two-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Netrunner</strong></td>
-                <td>INT, Mana</td>
-                <td>System Hacking (Water/Air)</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Techie</strong></td>
-                <td>INT, WIL, DEF</td>
-                <td>Drones & Engineering</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Medie</strong></td>
-                <td>HEA, HP</td>
-                <td>Healing & Detoxification</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Fixer</strong></td>
-                <td>CHA, Money</td>
-                <td>Credit Siphoning & Contracts</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Thief</strong></td>
-                <td>AGI, ATK</td>
-                <td>Stealth & Backstabbing</td>
-                <td>Leather armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Heavy</strong></td>
-                <td>STR, HEA, DEF</td>
-                <td>Tanking & Earth Damage</td>
-                <td>All armor, One/Two-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Psycher</strong></td>
-                <td>WIL, Mana</td>
-                <td>Neural Energy & Mind Control</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Warlock</strong></td>
-                <td>INT, WIL, Mana</td>
-                <td>Debuffs & Chaos</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Priest</strong></td>
-                <td>WIL, HEA, HP</td>
-                <td>Divine Restoration & Air Damage</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Trickster</strong></td>
-                <td>CHA, AGI</td>
-                <td>Luck & Confusion</td>
-                <td>Leather/Light armor, One-handed weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Jade Dragon</strong></td>
-                <td>AGI, STR, DEF</td>
-                <td>Unarmed Martial Arts</td>
-                <td>Light armor only, Jade weapons</td>
-            </tr>
-            <tr>
-                <td><strong>Ninja</strong></td>
-                <td>AGI, ATK</td>
-                <td>Stealth & Thrown Weapons</td>
-                <td>Light armor only, Ninja weapons</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2 id="game-commands">Game Commands</h2>
-
-    <h3>Navigation</h3>
-    <ul>
-        <li><code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>: Movement.</li>
-        <li><code>EXIT</code>: Log out safely.</li>
-    </ul>
-
-    <h3>Information</h3>
-    <ul>
-        <li><code>L</code> / <code>LOOK</code>: Scan sector. <code>LOOK &lt;target&gt;</code>: Examine entity.</li>
-        <li><code>WHO</code>: List active nodes.</li>
-        <li><code>TOP</code>: Top 25 ranking.</li>
-        <li><code>WALL</code>: Top 25 deaths.</li>
-        <li><code>ST</code> / <code>STATUS</code>: Detailed profile.</li>
-        <li><code>I</code> / <code>INVENTORY</code>: List gear.</li>
-        <li><code>HELP</code> / <code>?</code>: Command manual.</li>
-    </ul>
-
-    <h3>Communication</h3>
-    <ul>
-        <li><code>SAY &lt;msg&gt;</code>: Local chat.</li>
-        <li><code>BROADCAST &lt;msg&gt;</code>: Global chat.</li>
-    </ul>
-
-    <h3>Combat & Action</h3>
-    <ul>
-        <li><code>A &lt;target&gt;</code>: Attack one round.</li>
-        <li><code>AA &lt;target&gt;</code>: Auto-attack until victory/defeat.</li>
-        <li><code>&lt;ABILITY&gt; &lt;target&gt;</code>: Use class skill.</li>
-        <li><code>STEALTH</code> / <code>SNEAK</code>: Hide.</li>
-        <li><code>REST</code>: Recover HP/Mana.</li>
-    </ul>
-
-    <h3>Items</h3>
-    <ul>
-        <li><code>USE &lt;item&gt;</code>: Consumables/Drugs.</li>
-        <li><code>GET &lt;item&gt;</code> / <code>DROP &lt;item&gt;</code>: Ground interaction.</li>
-        <li><code>EQUIP &lt;item&gt;</code>: Manage hardware.</li>
-        <li><code>LIST</code> / <code>BUY</code> / <code>SELL</code>: Commerce.</li>
-        <li><code>SELLALL</code>: Sell all unequipped hardware.</li>
-    </ul>
-
-    <h2 id="world-structure">World Structure</h2>
-    <p>The grid consists of 8 procedural sectors connected to <strong>The Neon Hub</strong>. Higher sectors feature tougher enemies, environmental hazards, and richer loot.</p>
-
-    <h2 id="combat-system">Combat System</h2>
-
-    <h3>Damage & Crits</h3>
-    <p>Damage: <code>max(1, ATK - DEF/2)</code> ± variance. Critical Hits: 2.0x damage. Chance based on AGI (physical) or INT (abilities).</p>
-
-    <h3>Elemental Wheel</h3>
-    <ul>
-        <li><strong>Fire</strong> > <strong>Air</strong> > <strong>Earth</strong> > <strong>Water</strong> > <strong>Fire</strong></li>
-        <li>Strength: 1.5x damage. Weakness: 0.5x damage.</li>
-    </ul>
-
-    <h3>Weapon Speed</h3>
-    <p>10 Speed Bonus = 1 extra attack/round. 10 Agility = 1 extra attack/round.</p>
-
-    <h2 id="items-equipment">Items & Equipment</h2>
-    <p>Equip weapons, armor, and accessories to boost your stats. Bosses drop unique legendary items.</p>
-
-    <h2 id="character-progression">Character Progression</h2>
-    <p>Earn XP by defeating enemies. Each level up awards 1 stat point to manually assign to STR, AGI, HEA, INT, WIL, or CHA.</p>
-
-    <h2 id="karma-reputation">Karma & Reputation</h2>
-    <p>Karma ranges from -100 (Villain) to +100 (Saint). Your alignment affects how security bots and NPCs react to you.</p>
-
-    <h2 id="stealth-system">Stealth System</h2>
-    <p>Use <code>STEALTH</code> or <code>SNEAK</code> to hide. Backstab attacks from stealth deal massive bonus damage.</p>
-
-    <h2 id="drug-addiction">Drug & Addiction System</h2>
-    <p>Consumables provide temporary stat boosts but carry risk of addiction and withdrawal penalties.</p>
-
-    <h2 id="npc-aggression">NPC Aggression & Stalking</h2>
-    <p>Aggressive NPCs and hostile AI bots may stalk or initiate combat when you enter their room.</p>
-
-    <h2 id="party-system">Party System</h2>
-    <ul>
-        <li><code>PARTY CREATE</code>: Start a new party as leader.</li>
-        <li><code>PARTY INVITE &lt;player&gt;</code>: Invite a player in your current room.</li>
-        <li><code>PARTY ACCEPT</code>: Join a party after receiving an invite.</li>
-        <li><code>PARTY LEAVE</code>: Exit your current party.</li>
-        <li><code>PARTY STATUS</code>: See current members.</li>
-        <li><strong>Group Movement</strong>: When the leader moves, all online party members move with them.</li>
-    </ul>
-
-    <h2 id="mud-client-setup">MUD Client Setup</h2>
-    <p>Darkness BBS supports traditional MUD clients like Mudlet, MUSHclient, and any standard Telnet client.</p>
-
-    <h3>Connecting with a MUD Client</h3>
-    <h4>Mudlet</h4>
-    <ol>
-        <li>Open Mudlet</li>
-        <li>Click <strong>"Connect"</strong> → <strong>"Connect to..."</strong></li>
-        <li>Enter connection details provided by the server administrator</li>
-        <li>Uncheck <strong>"Use SSL/TLS"</strong></li>
-        <li>Click <strong>"Connect"</strong></li>
-        <li>Log in with your handle and password when prompted</li>
-    </ol>
-
-    <h4>MUSHclient & Generic Telnet</h4>
-    <p>Connect to the server host and port using MUSHclient or any standard Telnet client.</p>
+# Terminal 2: Start MUD server
+python manage.py start_mud_server
+</code></pre>
+<p>Players can use either interface interchangeably - they share the same game state and database.</p>
+<h3>PythonAnywhere Deployment</h3>
+<p>On PythonAnywhere, you can run both the web interface and MUD server:</p>
+<p><strong>Web Interface:</strong>
+- Configured via the PythonAnywhere "Web" tab
+- Runs on standard ports (80/443)
+- Uses WSGI configuration</p>
+<p><strong>MUD Telnet Server:</strong>
+- Run as an "Always-On Task" in the PythonAnywhere dashboard
+- Default port: 4000
+- You can customize the port with: <code>python manage.py start_mud_server --port 5000</code>
+- <strong>Important</strong>: On PythonAnywhere free accounts, you can only run the web app. The MUD server requires a paid account to run as an always-on task.
+- On paid accounts, configure the always-on task to run: <code>python manage.py start_mud_server --port 4000</code></p>
+<p><strong>Firewall/Port Configuration:</strong>
+- PythonAnywhere allows outbound connections on any port
+- For inbound MUD connections, use a port like 4000, 5000, or 8000
+- Players connect to: <code>yourusername.pythonanywhere.com:4000</code></p>
+<p><strong>Example PythonAnywhere Setup:</strong>
+1. Deploy web app via the "Web" tab (standard Django setup)
+2. Go to "Tasks" tab → "Always-On Tasks"
+3. Add command: <code>python manage.py start_mud_server --port 4000 --settings=darkness_django.settings.production</code>
+4. Players can now connect via MUD client to <code>yourusername.pythonanywhere.com:4000</code></p>
+<h3>Security Notes</h3>
+<ul>
+<li>The MUD server does not use encryption (standard Telnet)</li>
+<li>For production deployments, consider using SSH tunneling or a VPN</li>
+<li>Passwords are transmitted in plain text over Telnet</li>
+<li>Use strong passwords for your account</li>
+<li>The web interface uses HTTPS when properly configured</li>
+</ul>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

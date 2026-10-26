@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePhone - License - Dark Work, LLC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>SecurePhone Software License</h1>
+<p>Copyright (c) 2026 SecurePhone Contributors. All rights reserved.</p>
+<h2>Proprietary Software Notice</h2>
+<p>The SecurePhone application — including all source code, object code, binaries,
+documentation, configuration, and associated materials in this repository
+(collectively, the "Software") — is proprietary and confidential software of
+SecurePhone Contributors.</p>
+<p>Except for the rights expressly granted under the Third-Party Notices below,
+<strong>all right, title, and interest in and to the Software, including all
+intellectual property rights, are and shall remain the exclusive property of
+SecurePhone Contributors.</strong></p>
+<p>Unless you have executed a separate written license agreement with SecurePhone
+Contributors that covers the Software, the following applies: <strong>you may not
+use, copy, modify, create derivative works of, publicly display, perform,
+distribute, sublicense, rent, lease, lend, or otherwise exploit the Software
+(in whole or in part) without the prior written consent of SecurePhone
+Contributors.</strong></p>
+<p>Without limiting the foregoing, you must not:</p>
+<ul>
+<li>redistribute or otherwise transfer the Software (in source or binary form)
+  to any third party without SecurePhone Contributors' prior written authorization;</li>
+<li>reverse engineer, decompile, disassemble, or attempt to derive the source code
+  of the Software, except and only to the extent expressly permitted by
+  applicable law notwithstanding this limitation;</li>
+<li>use the Software to develop or operate a competing product or service without
+  SecurePhone Contributors' prior written consent;</li>
+<li>remove, alter, or obscure any proprietary notices on or in the Software.</li>
+</ul>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND TITLE. IN NO EVENT
+SHALL SECUREPHONE CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<hr />
+<h2>Third-Party Notices</h2>
+<p>SecurePhone is built with Flutter/Dart and open-source packages. Each component is
+used under its own license and is <strong>not</strong> covered by the proprietary notice
+above; compliance with those licenses is the responsibility of the licensee.
+Those licenses (and any required copyright notices) continue to apply to the
+respective third-party code:</p>
+<ul>
+<li>Flutter SDK (BSD-3-Clause) — https://github.com/flutter/flutter</li>
+<li><code>http</code>, <code>flutter_lints</code> (BSD-3-Clause, Dart team)</li>
+<li><code>socks5_proxy</code> — see https://pub.dev/packages/socks5_proxy</li>
+<li><code>path_provider</code> (BSD-3-Clause, Flutter team)</li>
+<li><code>flutter_webrtc</code> (BSD-3-Clause) — https://github.com/flutter-webrtc/flutter-webrtc</li>
+<li><code>cupertino_icons</code> (MIT)</li>
+<li><code>crypto</code> and <code>cryptography</code> — see the licenses shipped with the resolved
+  packages in the dependency lockfile.</li>
+</ul>
+<h3>Bundled Tor runtime (status: 2026-09-17)</h3>
+<p>Android APKs now redistribute Tor native libraries through
+<code>info.guardianproject:tor-android:0.4.8.16</code> from Guardian Project Maven, including
+transitive <code>jtorctl</code>. Tor itself is separate software (3-clause BSD) —
+https://www.torproject.org/. The Android wrapper, control client and native
+transitive components retain their respective upstream licenses.
+Desktop startup still uses a system or separately bundled Tor binary; iOS has
+no embedded Tor.framework integration.</p>
+<p>This list is an overview, not a complete redistribution-notice bundle. Before
+shipping an APK, inventory all resolved Dart, Android and native dependencies,
+preserve required upstream copyright/license texts, and satisfy their respective
+redistribution obligations. Debug APK packaging verification does not establish
+license compliance or production readiness. See <a href="./README.md">project status</a>.
+These status notes do not change the proprietary terms above.</p>
+<h2>Trademark Note</h2>
+<p>"Tor" and the onion logo are trademarks of The Tor Project, Inc. SecurePhone is an
+independent project and is not affiliated with or endorsed by The Tor Project.
+Use of these trademarks is for identification and attribution only.</p>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

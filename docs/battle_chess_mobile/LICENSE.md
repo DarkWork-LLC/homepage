@@ -31,7 +31,7 @@ This software is **NOT FREE** and is **NOT OPEN SOURCE**. Battle Chess is a prop
 
 **LEGAL NOTICE:** Unauthorized use of this software constitutes copyright infringement and may result in civil and criminal penalties.
 
-## 4. Commercial Licensing & Contact
+## 4. Commercial Licensing
 
 For commercial licensing inquiries, contact:
 **Dark Work, LLC**
@@ -39,17 +39,17 @@ For commercial licensing inquiries, contact:
 
 All commercial licenses are subject to separate written agreements and fees determined by Dark Work, LLC at its sole discretion.
 
-## 5. Disclaimer of Warranty & Guarantees
+## 5. Disclaimer of Warranty
 
-THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND ENTERTAINMENT PURPOSES ONLY, "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH NO GUARANTEES, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## 6. Limitation of Liability
 
-In no event shall Dark Work, LLC or darkworkllc@gmail.com be liable for any direct, indirect, incidental, special, exemplary, or consequential damages or liability for anything arising in any way out of the use of this software.
+In no event shall Dark Work, LLC or darkworkllc@gmail.com be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
 
 ---
 
-**WARNING:** By installing, copying, or otherwise using this software, you acknowledge that you have read this license agreement, understand it, and agree to be bound by its terms and conditions.
+**WARNING:** By installing, copying, or otherwise using this software, you acknowledge that you have read this license agreement, understand it, and agree to be bound by its terms and conditions. If you do not agree to these terms, you must not use this software.
 
-**Last Updated:** May 6, 2026
-**Version:** 1.0
+**Last Updated:** September 2026
+**Version:** 1.0.0

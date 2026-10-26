@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battle Chess - README</title>
+    <title>Battle Chess - README - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
-    {% include 'battle_chess_mobile/readme_content.html' %}
+    <h1>⚔️ BATTLE CHESS</h1>
+<p>A visceral, cartoon-style chess game built with <strong>Flutter</strong> and the <strong>Flame engine</strong>. Featuring chunky 3D-shaded vector pieces with big personalities, vibrant themes, and high-impact combat animations.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Gorgeous Visuals &amp; Themes:</strong></li>
+<li><strong>Board Themes:</strong> Switch seamlessly between <strong>Mahogany Wood</strong>, <strong>Imperial Marble</strong>, <strong>Neon Cyber</strong>, and <strong>Midnight Star</strong> themes via the <strong>Palette</strong> icon in the top bar.</li>
+<li><strong>Tactile 3D Board:</strong> Rendered with tile bevels, inner shadows, theme-matched outer frames, and gold/metallic corner studs.</li>
+<li><strong>Polished 3D-Shaded Vector Pieces:</strong> Custom vector pieces painted with radial and linear gradients, specular highlights, glossy sheen, pedestals, and drop shadows.</li>
+<li><strong>Last Move &amp; Target Highlights:</strong> Soft glowing trails on previous moves, pulsating selection glow, target lock reticles for captures, and glowing movement rings.</li>
+<li><strong>High-Impact FX &amp; Fatalities:</strong></li>
+<li><strong>Shockwave Rings &amp; Comic Hit Text:</strong> Captures unleash expanding shockwaves and animated floating text ("BOOM!", "SPLAT!", "FATALITY!", "CRUSH!", "KO!").</li>
+<li><strong>Dust Puffs &amp; Check Auras:</strong> Landing dust particles when pieces hop, and a pulsating radial plasma check aura under kings in check.</li>
+<li><strong>Unique Fatalities:</strong> Every piece type has a unique death animation—pawns get squashed, rooks crumble, and queens explode into shards.</li>
+<li><strong>Sound &amp; Music:</strong> A soft, relaxing looped background track (<code>chess_loop.mp3</code>) plays quietly while the app runs, layered with punchy move blips and splatter audio on captures — all toggleable from the settings menu.</li>
+<li><strong>Learning AI</strong>: Features a SQLite-backed adaptive learning system. The AI records every move you make and uses that experience to recognize tricks and adapt in future games. The database (<code>chess_learning.db</code>) is bounded to ~60,000 records to prevent performance degradation from unbounded growth.</li>
+<li><strong>Dynamic Personalities &amp; Dorky Names:</strong> Every game deals you a randomly named AI opponent (e.g. <em>Dr. Snoodlebottom</em>, <em>General Wobblepants</em>) with one of four play styles — <em>The Positionalist</em>, <em>The Heuristician</em>, <em>The Aggressor</em>, and <em>The Tactician</em>.</li>
+<li><strong>Five Difficulty Levels:</strong> AI opponents are graded from 1 (Clueless) to 5 (Grandmaster). Beginner levels (1–2) use heavily randomized move selection, while levels 3–5 use progressively deeper minimax search with less randomness. Grandmaster (5) also recognizes a library of classic tactical patterns.</li>
+<li><strong>Level 1 (Clueless):</strong> No search; 60% chance of picking a random move from all legal moves.</li>
+<li><strong>Level 2 (Toddler):</strong> 2-ply search; 25% chance of picking a random move.</li>
+<li><strong>Level 3 (Decent):</strong> 3-ply search; 15% chance of picking a random move.</li>
+<li><strong>Level 4 (Strategic):</strong> 5-ply search; 5% chance of picking a random move.</li>
+<li><strong>Level 5 (Grandmaster):</strong> 7-ply search; detects and uses classic tactical patterns.</li>
+<li><strong>Battle Log &amp; Adaptive Chat:</strong> Real-time log of every move with interactive trash-talking AI that recognizes "tricks" it has seen before.</li>
+<li><strong>Multiplayer Options:</strong></li>
+<li><strong>Local Network (Wi-Fi):</strong> Host or join games over Wi-Fi/LAN for cross-platform head-to-head battles.</li>
+<li><strong>Nearby Play (Bluetooth):</strong> Head-to-head play over Bluetooth without Wi-Fi network required (via <code>nearby_connections</code>).</li>
+<li><strong>Undo &amp; New Game:</strong> Step back your last move (the AI's reply is rolled back too) or start a fresh game and pick White or Black at any time.</li>
+<li><strong>Full Chess Rules:</strong> Legal move generation, castling, en passant, promotion, checkmate, and stalemate detection.</li>
+</ul>
+<h2>License</h2>
+<p><strong>Proprietary License</strong></p>
+<p>© 2026 <strong>Dark Work, LLC</strong> &amp; <strong>darkworkllc@gmail.com</strong>. All rights reserved.
+Created and owned by <strong>Dark Work, LLC</strong>. Unauthorized copying, modification, or distribution of this software is strictly prohibited.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

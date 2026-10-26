@@ -1,7 +1,7 @@
 # Privacy Policy for Battle Chess
 
 **Package Name:** `com.battlechess.battle_chess_mobile`
-**Application:** Battle Chess
+**Application:** Battle Chess Mobile
 **Version:** 1.0.0
 
 **Owner:** Dark Work, LLC & darkworkllc@gmail.com
@@ -23,19 +23,13 @@ Battle Chess ("we", "our", "us") is committed to protecting your privacy. This P
 Since all data remains on your device, we do not collect any personal information from you. The application processes the following types of data locally:
 
 ### Game Progress & Learning
-- Win/loss records
-- AI Learning Database (move weights and tactical experience)
-- Difficulty levels unlocked
-- Custom settings and preferences
+- AI learning database (`chess_learning.db`): move weights and tactical experience recorded per AI personality as you play
 
-### Device Information
-- Device model and manufacturer
-- OS version
-- Hardware specifications (for performance optimisation)
+### Session Settings
+- Board theme, sound preference, and chosen colour (held in memory for the current session only; not persisted to disk)
 
-### Local Multiplayer (LAN)
-- Local IP address (only when hosting or joining a LAN game)
-- Device name (as broadcasted to other players on the same network)
+### Local Multiplayer
+- Local IP address, device name, and a broadcast game ID (only while hosting or joining a LAN or Bluetooth game)
 
 ---
 
@@ -50,9 +44,8 @@ All data is used exclusively for the following purposes within the application o
 - Provide high-impact combat animations and effects
 
 ### User Experience
-- Save game settings
-- Track personal achievements and history
-- Optimise performance for your specific hardware
+- Remember your theme and sound preferences for the current session
+- Record AI learning progress so your opponent improves over time
 
 ---
 
@@ -76,10 +69,20 @@ All data is used exclusively for the following purposes within the application o
 
 ### Required Permissions
 
-**Nearby Devices / Local Network**
-- Purpose: Local multiplayer
-- Usage: Discover and connect to other devices on the same Wi-Fi/LAN, or over Bluetooth using the Nearby Connections API
+**Bluetooth (including Advertise / Scan / Connect)**
+- Purpose: Nearby (Bluetooth) multiplayer
+- Usage: Advertise a game, discover nearby hosts, and connect to them using the Nearby Connections API
 - Data: Broadcasted game ID and device name
+
+**Nearby Wi-Fi Devices / Local Network**
+- Purpose: Local (Wi-Fi/LAN) multiplayer
+- Usage: Discover and connect to other devices on the same network
+- Data: Broadcasted game ID, device name, and local IP address
+
+**Location (coarse & fine)**
+- Purpose: Required by Android in order to scan for Bluetooth and nearby Wi-Fi devices
+- Usage: Only accessed while discovering Nearby/Bluetooth opponents; the app never records or stores your location
+- Data: None stored
 
 ---
 

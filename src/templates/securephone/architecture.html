@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePhone - Architecture - Dark Work, LLC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>Architecture — SecurePhone prototype</h1>
+<p>Status snapshot: <strong>2026-09-17</strong>, unreleased changes on package <code>securephone</code> version
+<code>1.0.0+1</code>. Android debug packaging is verified; native device operation, secure
+messaging and voice media are not validated. See <a href="./README.md">overview</a> and
+<a href="./SECURITY.md">security posture</a>.</p>
+<h2>1. Module Map</h2>
+<p>Source paths below are relative to <code>/home/bimo/workspace/securephone</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Current responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lib/main.dart</code></td>
+<td>Material dashboard; owns services, starts Tor and waits for bootstrap, displays Tor/pin status; contact and PSTN buttons send REST requests, not media calls. Lifecycle detach requests Tor shutdown.</td>
+</tr>
+<tr>
+<td><code>lib/tor_service.dart</code></td>
+<td>Reuses a reachable SOCKS proxy; otherwise starts the embedded Android runtime or searches/spawns a desktop Tor binary. Records errors, probes SOCKS liveness, separately checks bootstrap, and stops owned runtimes.</td>
+</tr>
+<tr>
+<td><code>lib/tor_platform.dart</code></td>
+<td>Injectable <code>TorPlatform</code> interface and Android <code>securephone/tor</code> MethodChannel adapter.</td>
+</tr>
+<tr>
+<td><code>android/app/src/main/kotlin/com/example/securephone/TorPlatformHandler.kt</code></td>
+<td>Starts/binds tor-android, queries its SOCKS listener, unbinds/stops on explicit shutdown. Registered by <code>MainActivity</code>.</td>
+</tr>
+<tr>
+<td><code>lib/network_client.dart</code></td>
+<td>Singleton HTTP/raw TCP transport through SOCKS5, target host allow-list and IP-literal rejection. Forwards onion names as SOCKS domain requests rather than local DNS. TLS upgrade has a bad-certificate SPKI callback.</td>
+</tr>
+<tr>
+<td><code>lib/pinning.dart</code>, <code>lib/pin_provisioning_service.dart</code>, <code>lib/pin_startup.dart</code></td>
+<td>Pin models, DER/SPKI hashing, build configuration, signed provisioning payload checks and startup fallback. Defaults remain placeholders; see limitations below.</td>
+</tr>
+<tr>
+<td><code>lib/sms_service.dart</code></td>
+<td><code>POST /send</code>, <code>GET /messages</code>, best-effort <code>GET /receipts</code> merged by ID, and <code>POST /receipts/ack</code>. Optional <code>SmsE2ee</code> hook; not enabled in the UI.</td>
+</tr>
+<tr>
+<td><code>lib/e2ee.dart</code></td>
+<td>Experimental custom DH/symmetric ratchet and identity bundle helpers. Not Signal/X3DH, unaudited, with no signed pre-keys or secure persistent sessions.</td>
+</tr>
+<tr>
+<td><code>lib/voip_service.dart</code></td>
+<td>REST initiation/PSTN requests plus unfinished WebRTC session and newline-delimited JSON socket signaling. ICE is socket-first with HTTP fallback, both via <code>NetworkClient</code>.</td>
+</tr>
+<tr>
+<td><code>test/</code>, <code>tool/tor_e2e_check.dart</code></td>
+<td>Unit/regression checks and opt-in live Tor connectivity checks; not Android native integration coverage.</td>
+</tr>
+</tbody>
+</table>
+<p>Dependencies include Flutter, <code>http</code>, <code>socks5_proxy</code>, <code>crypto</code>, <code>cryptography</code>,
+<code>flutter_webrtc</code>, <code>path_provider</code> and <code>cupertino_icons</code>. Android Gradle pins
+<code>info.guardianproject:tor-android:0.4.8.16</code> from Guardian Project Maven, with
+transitive <code>jtorctl</code>. The APK includes Tor libraries for ARMv7, ARM64 and x86_64.</p>
+<h2>2. Runtime Sequences</h2>
+<ul>
+<li><strong>Startup:</strong> the dashboard starts Tor, checks SOCKS liveness, separately waits
+  for bootstrap, and initializes pins. The badge distinguishes connecting from
+  connected; pin provisioning failures retain build/baked-in configuration.</li>
+<li><strong>SMS:</strong> the dialog calls <code>sendSms</code>, which posts recipient/message JSON through
+  SOCKS. HTTP 200 means relay acceptance, not confirmed delivery. The UI does
+  not provide an E2EE channel. Receipt fetching and acknowledgement are service
+  APIs, not proof of an operational backend.</li>
+<li><strong>Calls:</strong> contact/PSTN buttons send REST requests. They do not invoke
+  <code>startWebRtcCall</code> or attach microphone tracks.</li>
+<li><strong>Draft socket signaling:</strong> UTF-8 newline-delimited JSON with a <code>hello</code>
+  message, SDP and ICE messages. This replaces the original <code>HELLO</code> example,
+  but is not a complete interoperable signaling protocol.</li>
+</ul>
+<h2>3. State, Lifecycle &amp; Errors</h2>
+<ul>
+<li>UI state uses <code>setState</code>; network operations use futures and socket streams.</li>
+<li>SMS/REST operations generally return <code>false</code> or <code>[]</code> on errors. Tor startup
+  records <code>lastError</code>/<code>spawnFailed</code>; its default startup timeout is 90 seconds
+  and probe timeout is 5 seconds.</li>
+<li>Android startup rejects a reported SOCKS-port mismatch and cleans up failed
+  starts. Embedded errors do not fall back to binary spawning. Explicit stop
+  unbinds/stops the native service; Dart lifecycle detach requests shutdown.
+  No native engine-detach handler or background keep-alive is implemented.</li>
+<li><code>NetworkClient</code> is a singleton; changing proxy or pin settings rebuilds its
+  HTTP client. No persistent per-peer encrypted session store exists.</li>
+</ul>
+<h2>4. Security Properties &amp; Known Gaps</h2>
+<ul>
+<li>Service HTTP/raw TCP requests use SOCKS, without a direct transport fallback.
+  Onion names are passed to Tor rather than resolved through local DNS.</li>
+<li>Host allow-listing and IP-literal rejection exist. Endpoint flags do not
+  update the fixed hosts in <code>PinBuildConfig</code>; custom relays require matching
+  allow-list/provisioning integration. Defaults are placeholder services/pins.</li>
+<li>TLS SPKI checks run in a <strong>bad-certificate callback</strong>, not on every successful
+  TLS connection. Normally trusted certificates can bypass that callback;
+  do not claim universal pin enforcement. HTTP/raw signaling has no TLS pin
+  check. See <a href="./SECURITY.md">security limitations</a>.</li>
+<li>The optional custom ratchet is not validated Signal/X3DH. Bundles are not
+  signed, persistence is absent, and adversarial behavior is not validated.
+  <code>fetchMessages</code> currently attempts decryption twice, discarding the first
+  result; with stateful ratchets this can consume state and fail the second
+  attempt. This is an outstanding code defect, not fixed by this doc update.</li>
+<li>WebRTC is relay-only with no TURN server, so media cannot connect. No local
+  audio tracks or outgoing offer are created by the current session start.
+  Message framing, duplicate dispatch and per-call routing still need work.
+  Tor-backed signaling does not tunnel media through Tor.</li>
+</ul>
+<h2>5. Integration Work Remaining</h2>
+<ol>
+<li>Validate Android startup/bootstrap and stop/restart on a clean device
+   without Orbot; packaging and mocked lifecycle tests are not device tests.</li>
+<li>Deploy real onion SMS/signaling/PSTN backends and integrate matching host
+   allow-lists, trust anchors and pin provisioning. URL constructors and
+   <code>SECUREPHONE_*</code> endpoint flags alone are insufficient.</li>
+<li>Replace the experimental crypto with a vetted protocol, authenticated
+   per-peer sessions and secure persistence; fix and test SMS receive state.</li>
+<li>Design a privacy-reviewed media path and complete signaling, microphone
+   permissions/tracks, call lifecycle and UI integration.</li>
+<li>Implement release signing, review native dependency security updates and
+   third-party redistribution notices before distribution.</li>
+</ol>
+<h2>6. Verification &amp; Platform Scope</h2>
+<p>Recorded verification on 2026-09-17: Android debug APK build succeeded, static
+analysis was clean, and 47 tests passed with one opt-in live Tor test skipped.
+Tor native libraries were inspected in the APK. No Android device or configured
+emulator was available; native operation remains unverified. The Kotlin plugin
+migration warning did not fail the build.</p>
+<p>Desktop code searches for a local Tor binary. iOS has no Tor.framework binding;
+its scaffold is not a self-contained Tor client. Other platform shells are not
+validated, and the current <code>dart:io</code> networking is not a browser implementation.</p>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

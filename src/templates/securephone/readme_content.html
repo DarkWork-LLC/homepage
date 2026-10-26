@@ -1,0 +1,81 @@
+{% raw %}
+<h1>SecurePhone</h1>
+<p>SecurePhone is a communications prototype with Tor-backed SMS relay requests
+and call signaling. Tor hides the client's IP from those destination services;
+it does not hide recipients, timing, or other metadata from the relay.
+End-to-end encryption and voice media are not production-ready (see below).</p>
+<blockquote>
+<p><strong>Proprietary and confidential.</strong> SecurePhone is proprietary software of
+SecurePhone Contributors. <strong>All rights reserved.</strong> Use of this software is
+governed by the terms set forth in <a href="./LICENSE.md"><code>LICENSE.md</code></a>; nothing in
+this repository grants you a license to copy, modify, distribute, or
+otherwise exploit SecurePhone except as expressly stated in that license.</p>
+</blockquote>
+<h2>Project status — 2026-09-17</h2>
+<p>This is an unreleased prototype; the package version remains <code>1.0.0+1</code>
+(package name <code>securephone</code>). The most recent verification recorded a successful
+Android debug APK build, clean static analysis, and <strong>47 passing tests with
+one live Tor test skipped</strong>. Tor native libraries were verified in the APK
+for ARMv7, ARM64 and x86_64. No Android device or configured emulator was
+available, so native startup/bootstrap and stop/restart remain unverified.
+The <code>flutter_webrtc</code> Kotlin Gradle Plugin warning did not fail that build;
+compatibility with future Flutter versions still needs attention.</p>
+<p>The dashboard sends relay requests, not completed voice calls. It does not
+attach the experimental encryption channel. There are no working backends
+included, no production signing setup, and no validated secure-messaging release.
+See <a href="./ARCHITECTURE.md">architecture</a> and <a href="./SECURITY.md">security limitations</a>.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Tor-backed requests</strong> — SMS relay requests and call signaling use
+  <code>NetworkClient</code> through a local SOCKS5 proxy, without a direct fallback.</li>
+<li><strong>Embedded Tor on Android</strong> — the APK includes <code>tor-android</code> 0.4.8.16 and
+  its native libraries; no separate Orbot installation or runtime download
+  is required. Non-Android platforms still require a Tor binary.</li>
+<li><strong>Configurable relays</strong> — SMS, VoIP and PSTN endpoints are configurable.
+  The default onion names are placeholders, not working services.</li>
+<li><strong>Experimental messaging/media</strong> — SMS encryption is opt-in and unaudited.
+  The WebRTC draft uses relay-only ICE with no TURN server, so media cannot
+  connect. Tor signaling alone does not tunnel WebRTC media.</li>
+</ul>
+<h2>Android build and verification</h2>
+<p>From <code>/home/bimo/workspace/securephone</code>, run <code>flutter build apk --debug</code>.
+The artifact is
+<code>/home/bimo/workspace/securephone/build/app/outputs/flutter-apk/app-debug.apk</code>.
+The minimum Android API level is at least 24. Release signing is still configured
+with debug keys; do not distribute that as a production release.</p>
+<p>Configure your own services with <code>SECUREPHONE_SMS_ONION</code>,
+<code>SECUREPHONE_VOIP_ONION</code>, <code>SECUREPHONE_PSTN_ONION</code>, and
+<code>SECUREPHONE_VOIP_SIGNALING_HOST</code> / <code>SECUREPHONE_VOIP_SIGNALING_PORT</code>
+using <code>--dart-define</code>. These overrides do <strong>not</strong> update the host allow-list:
+<code>PinBuildConfig</code> still uses fixed placeholder hostnames. Integrate matching
+host entries via <code>NetworkClient.setPinnedServices</code> or revise the build/provisioning
+configuration before using custom services; endpoint flags alone are insufficient.
+The default pins and provisioning host are placeholders, not deployable trust
+configuration. See <a href="./SECURITY.md">security limitations</a> before relying on TLS pins.
+Bundling Tor makes the client runtime self-contained, not the relay backends.</p>
+<p>Android startup uses the embedded service and checks its reported port against
+9050 before the usual SOCKS5 probe. Startup errors trigger service cleanup;
+there is no binary-spawn fallback after an embedded-runtime error.
+<code>isTorRunning()</code> proves SOCKS liveness, not a built Tor circuit; the app uses
+<code>waitForBootstrap()</code> separately.</p>
+<p>Unit tests and APK packaging do not prove native startup. Device validation is
+still required: install on a clean Android device without Orbot, launch, wait
+for bootstrap, test a configured onion request, and verify stop/restart.
+Background keep-alive is not implemented.</p>
+<h2>Third-Party Software</h2>
+<p>SecurePhone depends on open-source components (Flutter SDK, <code>http</code>,
+<code>socks5_proxy</code>, <code>path_provider</code>, <code>flutter_webrtc</code>, <code>cupertino_icons</code>, and Tor
+itself). These are used under their own licenses and are <strong>not</strong> covered by
+SecurePhone's proprietary license — see <a href="./LICENSE.md"><code>LICENSE.md</code></a>
+(Third-Party Notices). Android APKs redistribute Tor through the pinned
+<code>info.guardianproject:tor-android:0.4.8.16</code> AAR (including transitive <code>jtorctl</code>).
+On desktop, <code>TorService</code> spawns a local system or bundled Tor binary. Review
+upstream licenses and security updates before distribution.</p>
+<h2>Legal</h2>
+<ul>
+<li>SecurePhone is <strong>not</strong> affiliated with or endorsed by The Tor Project.</li>
+<li>"Tor" and the onion logo are trademarks of The Tor Project, Inc.</li>
+<li>See <a href="./SECURITY.md"><code>SECURITY.md</code></a> for the security posture and accepted
+  limitations of the current release.</li>
+</ul>
+{% endraw %}

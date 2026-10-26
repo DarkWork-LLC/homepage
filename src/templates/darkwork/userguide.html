@@ -3,59 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darkworks Lab - User Guide</title>
+    <title>Darkworks Lab - User Guide - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
     <h1>Darkworks Lab — User Guide</h1>
-
-    <p><strong>Package:</strong> <code>com.darkworks.lab</code><br>
-    <strong>Version:</strong> 1.0.0+1<br>
-    <strong>Platforms:</strong> Android and Linux</p>
-
-    <p>Darkworks Lab is a local-first application for learning, experimentation, and authorized defensive research. It inspects local devices, network activity, hardware telemetry, storage, and system health. It is not professional security advice and does not guarantee detection or protection. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action.</p>
-
-    <h2>Getting started</h2>
-    <p>On the first Android launch the app requests location and Bluetooth-related permissions. Grant the permissions needed for the features you use. Use <strong>Initialize perimeter</strong> in the dashboard header, or pull down on the dashboard, to run the security service scan. Linux does not show the Android permission dialogs.</p>
-
-    <h2>Dashboard</h2>
-    <ul>
-        <li><strong>Status header:</strong> shield artwork, active status, and the perimeter scan control.</li>
-        <li><strong>Quick statistics:</strong> Bluetooth and Network / Wi-Fi counts that open filtered device lists.</li>
-        <li><strong>Network discovery:</strong> up to four discovered network/Wi-Fi devices with an address summary.</li>
-        <li><strong>Bottom navigation:</strong> Status, Sensors, Security, System, and More.</li>
-        <li><strong>Theme toggle:</strong> the app-bar sun/moon button switches light and dark mode.</li>
-    </ul>
-
-    <h2>Device discovery</h2>
-    <p>Tap either dashboard statistic to open Device Discovery. The list supports device-type filters, refresh, and the device details/actions currently implemented. Results are local observations and may be limited by permissions, adapter state, and network reachability.</p>
-
-    <h2>Screens</h2>
-    <ul>
-        <li><strong>Sensors:</strong> accelerometer, gyroscope, magnetometer, ambient light, battery, and location data when available.</li>
-        <li><strong>Security:</strong> network scanning, port/service assessment, security reports, and event logs.</li>
-        <li><strong>System:</strong> device information, CPU/memory/battery metrics, network identity, active sockets, and aggregates.</li>
-        <li><strong>File integrity scan:</strong> walks accessible local files, reports progress, and classifies findings by risk.</li>
-        <li><strong>Radio spectrum monitor:</strong> SDR hardware availability and spectrum/status information (supported SDR required).</li>
-        <li><strong>System event logs:</strong> local events with severity styling and date filtering.</li>
-        <li><strong>Settings:</strong> settings and appearance controls exposed by the current build.</li>
-    </ul>
-    <p>Always review a file integrity result before deleting a file, and do not treat a clean result as proof that a device is secure.</p>
-
-    <h2>Privacy and safety</h2>
-    <p>Monitoring data is handled on the local device. This is educational software provided without a guarantee of complete detection or protection.</p>
-
-    <h2>Troubleshooting</h2>
-    <ul>
-        <li><strong>No Bluetooth results:</strong> enable Bluetooth, grant scan/connect permissions, and refresh.</li>
-        <li><strong>No network results:</strong> confirm the device is on the intended network and local discovery is permitted.</li>
-        <li><strong>Sensors unavailable:</strong> check OS permissions, hardware support, and stream state.</li>
-        <li><strong>Filesystem results incomplete:</strong> only paths exposed to the app can be inspected.</li>
-        <li><strong>No radio data:</strong> connect a supported SDR with the required host/runtime support.</li>
-    </ul>
-
-    <p><em>Ownership and liability: see License. Contact: darkworkllc@gmail.com.</em></p>
+<p><strong>Package:</strong> <code>com.darkworks.lab</code>
+<strong>Version:</strong> 1.0.32
+<strong>Platforms:</strong> Android and Linux</p>
+<p>Darkwork Lab is a local-first Flutter application for learning, experimentation, and authorized defensive research. It inspects local devices, network activity, hardware telemetry, storage, and system health. It is not professional security advice and does not guarantee detection or protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use the application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action. Some features depend on device hardware, operating-system permissions, network access, and optional SDR equipment.</p>
+<h2>Getting started</h2>
+<p>On the first Android launch the app requests location and Bluetooth-related permissions. Storage permissions are <strong>not</strong> requested at startup — they are only requested when you enable File Integrity Scan in Settings and initiate a scan. Grant the permissions needed for the features you use. Use <strong>Initialize perimeter</strong> in the dashboard header, or pull down on the dashboard, to run the security service scan. Linux does not show the Android permission dialogs.</p>
+<h2>Dashboard</h2>
+<p>The dashboard contains:</p>
+<ul>
+<li><strong>Status header:</strong> shield artwork, active status, and the perimeter scan control.</li>
+<li><strong>Quick statistics:</strong> Bluetooth and Network / Wi-Fi counts. The tiles remain side-by-side on narrow screens and open filtered device lists.</li>
+<li><strong>Network discovery:</strong> up to four discovered network/Wi-Fi devices with an address summary.</li>
+<li><strong>Environment alerts:</strong> the current dashboard displays a secure empty-state message.</li>
+<li><strong>Bottom navigation:</strong> Status, Sensors, Security, System, and More.</li>
+<li><strong>Theme toggle:</strong> the app-bar sun/moon button switches light and dark mode.</li>
+</ul>
+<h2>Device lists</h2>
+<p>Tap either dashboard statistic to open <strong>Device Discovery</strong>. The list supports device-type filters, refresh, and the device details/actions currently implemented by the app. Results are local observations and may be limited by permissions, adapter state, and network reachability.</p>
+<h2>Screens</h2>
+<h3>Sensors</h3>
+<p>The sensor monitor presents available accelerometer, gyroscope, magnetometer, ambient light, battery, and location data. Empty, unsupported, and permission-related states may appear depending on the host.</p>
+<h3>Security</h3>
+<p>The Network Security screen provides scanner and log views. Scans can discover local hosts and inspect configured ports/services. Results are diagnostic observations, not a guarantee that a host is secure.</p>
+<h3>System</h3>
+<p>System Monitor presents device information, CPU/memory/battery metrics, network identity, active sockets, and aggregate samples where the platform service can provide them.</p>
+<h3>File Integrity Scan</h3>
+<p>The filesystem scanner uses the MediaStore API to inspect media files accessible to the app. <strong>File scanning is disabled by default</strong> and can be enabled in Settings under "Storage &amp; Scanning &gt; File Integrity Scan". When disabled, no storage permission is requested and no files are accessed. When enabled, the app requests only the minimal MediaStore permissions (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, <code>READ_MEDIA_AUDIO</code> on Android 13+, or <code>READ_EXTERNAL_STORAGE</code> on Android &lt; 33) at scan time only. File deletion (when implemented) will use the file's <code>contentUri</code> via <code>ContentResolver.delete()</code> — no direct filesystem access or <code>MANAGE_EXTERNAL_STORAGE</code> is used. Always review a result before deleting a file.</p>
+<h3>Radio Spectrum Monitor</h3>
+<p>The radio screen reports SDR hardware availability and spectrum/status information. A compatible SDR and appropriate host support are required for useful results.</p>
+<h3>System Event Logs</h3>
+<p>The logging screen shows local events with severity/level styling and date filtering available in the current implementation.</p>
+<h3>Settings</h3>
+<p>System Settings exposes the settings available in the current build, including the <strong>File Integrity Scan</strong> core toggle (disabled by default), theme mode, and application settings. Theme mode is also controlled from the dashboard.</p>
+<h2>Privacy and safety</h2>
+<p>Monitoring data is handled by the application and its dependencies on the local device according to the <a href="PRIVACY_POLICY.md">Privacy Policy</a>. This is educational software provided without a guarantee of complete detection or protection. Do not treat a clean result as proof that a device is secure.</p>
+<h2>Troubleshooting</h2>
+<ul>
+<li><strong>No Bluetooth results:</strong> enable Bluetooth, grant scan/connect permissions, and refresh the scan.</li>
+<li><strong>No network results:</strong> confirm the device is on the intended network and that local discovery is permitted.</li>
+<li><strong>Sensors unavailable:</strong> check OS permissions, hardware support, and whether the stream is enabled.</li>
+<li><strong>Filesystem results are incomplete or unavailable:</strong> the scanner is disabled by default. Enable "File Integrity Scan" in Settings, then initiate a scan. On Android 13+, media permissions (<code>READ_MEDIA_IMAGES/VIDEO/AUDIO</code>) or <code>READ_EXTERNAL_STORAGE</code> (Android &lt; 33) are requested at scan time. The scanner only inspects files exposed via the MediaStore API — paths outside MediaStore are not accessible.</li>
+<li><strong>No radio data:</strong> connect a supported SDR and install the required host/runtime support.</li>
+<li><strong>Build or dependency issue:</strong> run <code>flutter pub get</code>, then <code>flutter analyze</code> and <code>flutter test</code>.</li>
+</ul>
+<h2>Ownership and liability</h2>
+<p>See <a href="LICENSE.md">LICENSE.md</a> for ownership, warranty, and liability terms.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

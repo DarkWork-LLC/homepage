@@ -22,14 +22,11 @@ We do not sell, trade, or otherwise transfer your personal information to outsid
 ## 4. Data Security
 We implement standard security measures (such as Django's built-in password hashing) to maintain the safety of your information.
 
-## 5. Your Rights & Deletion
-You have the right to request the deletion of your account and all associated data. Please contact darkworkllc@gmail.com to initiate this process.
+## 5. Your Rights
+You have the right to request the deletion of your account and all associated data. Since this is a self-hosted/hobby project, please contact the server administrator to initiate this process.
 
 ## 6. Cookies
 We use session cookies only to manage your login state while you are connected to the grid.
 
-## 7. Legal Disclaimer
-This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything.
-
-## 8. Contact
-For questions or support, contact darkworkllc@gmail.com.
+## 7. Changes to this Policy
+We may update this policy from time to time. Significant changes will be announced via the game's broadcast system.

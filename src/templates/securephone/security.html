@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePhone - Security - Dark Work, LLC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>Security Policy — SecurePhone</h1>
+<p><strong>Status — 2026-09-17:</strong> unreleased prototype on main; package version
+<code>1.0.0+1</code> is not a production security-support commitment. Do not use this
+build for sensitive communications. See <a href="./README.md">project status</a>.</p>
+<h2>1. Threat Model (current)</h2>
+<p>Service HTTP/raw TCP requests use SOCKS5 without a direct transport fallback.
+Onion names are forwarded to Tor rather than local DNS. These code properties
+are not a security audit or proof of Android operation.</p>
+<table>
+<thead>
+<tr>
+<th>Adversary</th>
+<th>Intended protection</th>
+<th>Remaining exposure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App server / onion operator</td>
+<td>Tor-routed requests hide the client IP from the destination</td>
+<td>Recipients, timing, call metadata and plaintext by default; experimental encryption is not a reliable security boundary</td>
+</tr>
+<tr>
+<td>ISP / local network</td>
+<td>Tor encrypts traffic between client and guard</td>
+<td>Tor use is observable; traffic correlation remains possible</td>
+</tr>
+<tr>
+<td>PSTN / SMS upstream</td>
+<td>No end-to-end protection for ordinary telephone-network legs</td>
+<td>Numbers, timing and plaintext legs; operational gateways are not included</td>
+</tr>
+<tr>
+<td>Device thief / malware</td>
+<td>No validated local-data protection</td>
+<td>In-memory messages, no encrypted session store or app lock</td>
+</tr>
+</tbody>
+</table>
+<p>Tor-network attacks and endpoint compromise are not addressed by the client.
+Malicious backends remain a risk. Do not represent SecurePhone as censorship-proof
+or as a validated anonymous calling system.</p>
+<h3>E2EE status</h3>
+<p>The custom ratchet in <code>/home/bimo/workspace/securephone/lib/e2ee.dart</code> is experimental, unaudited, and <strong>not an implementation of Signal/X3DH</strong>. Its pre-key bundles are not cryptographically signed. Passing basic round-trip tests does not establish protocol security, authenticated peer identity, replay safety, or safe state recovery after authentication failures. Do not use it to protect sensitive messages. It is opt-in through <code>SmsService(e2ee:)</code>; plaintext remains the default. Production E2EE requires a vetted protocol implementation, authenticated per-peer sessions, secure persistence, and adversarial testing.</p>
+<h3>SMS and trust-configuration gaps</h3>
+<p>The dashboard does not attach an E2EE channel. <code>fetchMessages</code> currently attempts
+decryption twice, discarding the first result; this can consume ratchet state
+and break reception. Receipt APIs provide best-effort relay metadata, not
+cryptographic delivery guarantees.</p>
+<p>Endpoint overrides do not update the fixed host allow-list in <code>PinBuildConfig</code>.
+Custom services need matching allow-list and trust configuration. Default hosts,
+pins and provisioning configuration remain placeholders.</p>
+<p>TLS SPKI checks run in a <strong>bad-certificate callback</strong>, not on every connection.
+Normally trusted certificates can bypass that callback; universal pin enforcement
+is not implemented. HTTP and raw socket signaling have no TLS pin check.
+Provisioning failures retain build/baked-in configuration, which is not proof
+of valid deployment trust.</p>
+<h2>2. Reporting a Vulnerability</h2>
+<ul>
+<li>Contact maintainers through a confirmed private channel with <code>[SECURITY]</code> in
+  the title. The configured repository is
+  <code>http://mofo-jackson:6009/timotheuzi/SecurePhone</code>; do not assume its tracker is
+  private or publicly accessible. Do not post sensitive details in public issues.</li>
+<li>Include the affected version/commit, reproduction steps, impact and redacted
+  logs. Never include real phone numbers, message contents or private onion keys.</li>
+<li>Coordinate disclosure with maintainers. No dedicated security mailbox, PGP key
+  or bug bounty is documented; this prototype does not establish a supported-release
+  or response-time guarantee. Credit may be recorded in the
+  <a href="./CHANGELOG.md">changelog</a> with reporter consent.</li>
+</ul>
+<h2>3. Hardening Checklist (for release builds)</h2>
+<ul>
+<li>[ ] Validate embedded Android Tor startup/bootstrap and stop/restart on-device.</li>
+<li>[ ] Configure real backends, matching allow-lists and authenticated provisioning.</li>
+<li>[ ] Enforce expected TLS pins on every relevant TLS connection and test bypass cases.</li>
+<li>[ ] Replace experimental crypto with a vetted protocol and secure session storage;
+      fix SMS receive state handling and complete security review before enabling E2EE.</li>
+<li>[ ] Design and validate a media transport that meets the stated privacy goals.</li>
+<li>[ ] Review logging, permissions, platform lifecycle and background-service behavior.</li>
+<li>[ ] Configure production signing and reproducible builds; review dependency locks,
+      upstream security updates and third-party notices before redistribution.</li>
+</ul>
+<h2>4. Known Limitations (unreleased prototype)</h2>
+<p><code>isTorRunning</code> is a SOCKS5-handshake probe (liveness, not bootstrap proof — a freshly started daemon answers <code>05 00</code> before all circuits are built); <code>startTor</code> records startup failures in <code>lastError</code>. Android bundles tor-android 0.4.8.16 through the <code>securephone/tor</code> MethodChannel; other platforms still require a system/bundled binary. Explicit stop unbinds and stops the Android service. No background keep-alive or engine-detach shutdown is implemented. APK packaging has been verified, but native startup and bootstrap still require device validation. Review upstream Tor security updates before distribution.</p>
+<p>WebRTC uses relay-only ICE with no configured TURN server, so the media draft cannot connect. Tor-backed signaling does not route WebRTC media through Tor; enabling direct candidates or ordinary TURN connections would introduce separate IP-exposure risks.</p>
+<p>Recorded verification on 2026-09-17: successful Android debug APK build,
+clean analysis, <strong>47 tests passed and one live Tor test skipped</strong>. Tor native
+libraries were inspected for ARMv7, ARM64 and x86_64. No Android device or
+configured emulator was available; mocked tests do not prove native operation.
+Release builds still use debug signing keys. iOS has no Tor.framework binding;
+other platform shells are unvalidated.</p>
+<p>See <a href="./ARCHITECTURE.md">architecture</a> for remaining integration work.</p>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

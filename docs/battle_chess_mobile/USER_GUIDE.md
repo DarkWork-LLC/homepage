@@ -28,10 +28,14 @@ Before every match, you can choose to play as **White** or **Black**.
    - **Green Circles:** Indicate open squares you can move to.
    - **Red Reticles:** Indicate enemy pieces you can capture.
 3. **Confirm Move:** Tap a highlighted square to execute the move.
-4. **Undo:** Use the **Undo** button in the top bar if you make a mistake (works against Computer and Local Human modes).
+4. **Promote:** When a pawn reaches the far rank, a **Promote Pawn** picker appears so you can choose a Queen, Rook, Bishop, or Knight.
 
-### Captured Pieces & Material Score
-The player header cards display a **Captured Pieces Tray** showing off the pieces captured from your opponent.
+### Top Bar Controls
+The top action bar holds the main controls:
+- **Palette:** Opens the **Select Board Theme** sheet so you can switch between Mahogany Wood, Imperial Marble, Neon Cyber, and Midnight Star at any time.
+- **Undo:** Take back your last move. Against the computer the AI's reply is rolled back too, so it is immediately your turn again.
+- **Restart:** Start a fresh match; you are asked whether you want to play as **White** or **Black**.
+- **Settings (gear, top-left):** Pick your opponent, toggle sound effects, or set up a Wi-Fi or Bluetooth game.
 
 ### Battles & Fatalities
 When you move your piece onto a red-highlighted square, a **Fight** is triggered.
@@ -42,8 +46,20 @@ When you move your piece onto a red-highlighted square, a **Fight** is triggered
 
 ### The Learning AI
 Unlike standard chess apps, the computer here **learns** as you play.
-- **Adapting to You:** If you beat the AI with a specific trick or opening, it will analyze that defeat. Next time, it might recognize the "trick" and comment on it, or even try to use your own winning moves against you!
-- **Persistent Knowledge:** The AI's experience is saved to a local database. The more you play, the "smarter" and more personalized your opponent becomes.
+- **Adapting to You:** If you beat the AI with a specific trick or opening, the AI records that experience. Next time it plays, it may recognize the situation and behave differently.
+- **Persistent Knowledge:** The AI's experience is saved to a local database (`chess_learning.db`). The database is bounded to ~60,000 records to prevent performance degradation over time.
+- **Personalities:** Each opponent is dealt a dorky, randomly generated name and one of four play styles: **The Positionalist** (position-focused), **The Heuristician** (classic heuristics), **The Aggressor** (prefers exchanges), and **The Tactician** (balanced minimax).
+
+### Difficulty Levels
+Opponents are graded 1–5. Beginner levels (1–2) are intentionally weak and randomized. Higher levels use deeper search with progressively less randomness.
+
+| Level | Name | Search Depth | Random Move Chance | Notes |
+|-------|------|--------------|-------------------|-------|
+| 1 | **Clueless** | None (0-ply) | 60% | Plays essentially randomly; regular players will win easily. |
+| 2 | **Toddler** | 2-ply | 25% | Still very weak; may make obvious mistakes. |
+| 3 | **Decent** | 3-ply | 15% | Competent; occasional tactical awareness. |
+| 4 | **Strategic** | 5-ply | 5% | Strong; plays solidly with minimal errors. |
+| 5 | **Grandmaster** | 7-ply | 0% | Strongest; recognizes classic tactical patterns. |
 
 ### Battle Log & Chat
 The bottom of the screen contains the **Battle Log**.
@@ -56,8 +72,9 @@ The bottom of the screen contains the **Battle Log**.
 Access the **Settings (gear icon)** in the top-left corner to choose your game mode and sound preferences.
 
 ### 1. Playing the Computer
-- **Computer (Random):** This AI varies greatly in skill and uses minimax with noise.
-- **Computer (Basic):** A consistent, strategic opponent using minimax logic.
+Both computer opponents announce their name, personality, and difficulty level in the Battle Log when the game starts.
+- **Computer (Random):** Varies greatly in skill from game to game, drawing from levels 3–5 (Decent, Strategic, Grandmaster) with full minimax search.
+- **Computer (Basic):** A beginner-friendly opponent drawn from levels 1–2 (Clueless, Toddler). These opponents are intentionally very weak — they rarely take free pieces, often pick suboptimal moves, and regular players should have little trouble beating them.
 
 ### 2. Local Head-to-Head
 - Select **Local Pass & Play (Human)** to play against someone sharing your device.
@@ -66,10 +83,15 @@ Access the **Settings (gear icon)** in the top-left corner to choose your game m
 Play across two different devices on the same Wi-Fi/LAN network using **Host Local Game** or **Join Local Game**.
 
 ### 4. Nearby Play (Bluetooth)
-Play head-to-head without needing a Wi-Fi network using **Nearby (Bluetooth)**.
+Play head-to-head without needing a Wi-Fi network using **Nearby (Bluetooth)**. The app will ask for Bluetooth and location permissions the first time; these are only used to discover and connect to nearby devices.
 
-## Legal Disclaimer
-This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact darkworkllc@gmail.com for support.
+### Sound & Music
+A soft, relaxing background track (`chess_loop.mp3`) loops quietly while Battle Chess is running, with the arcade move and splatter effects layered on top. Toggle both together from **Settings → Sound: ON/OFF**. The music pauses automatically when the app is moved to the background and resumes when you return.
+
+## Finishing a Game
+- **Check** is announced in the status badge above the board.
+- **Checkmate** ends the match with a victory dialog naming the winner and a **PLAY AGAIN** button.
+- **Stalemate** ends the match as a draw.
 
 ---
 

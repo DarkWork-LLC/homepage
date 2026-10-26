@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkness BBS User Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>Darkness BBS — User Guide</h1>
+
+    <h2>Overview</h2>
+    <p><strong>Darkness BBS</strong> is a multi-user, terminal-style cyberpunk RPG inspired by classic BBS games like MajorMUD. Players explore a procedurally generated grid, engage in tactical combat, customize their builds via manual stat training, and compete with other users in a gritty, neon-soaked world.</p>
+
+    <h2>Getting Started</h2>
+    <ol>
+        <li>Navigate to the terminal in your browser.</li>
+        <li>Click <strong>"Initialize New Profile"</strong> to create a character.</li>
+        <li>Select your <strong>Augmentation Path</strong> (Race) and <strong>Operational Class</strong>.</li>
+        <li>Log in and arrive at <strong>The Neon Hub</strong>, the grid's central safe zone.</li>
+    </ol>
+
+    <h2>Game Commands</h2>
+    <h3>Navigation & Session</h3>
+    <ul>
+        <li><code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>: Standard movement.</li>
+        <li><code>EXIT</code>: Safely logs out.</li>
+    </ul>
+    <h3>Information</h3>
+    <ul>
+        <li><code>LOOK</code> / <code>L</code>: Scans the sector for entities, players, items, and exits.</li>
+        <li><code>WHO</code>: Lists all active users.</li>
+        <li><code>TOP</code>: Displays the Top 10 adventurers.</li>
+        <li><code>ST</code> / <code>STATUS</code>: Detailed profile view.</li>
+        <li><code>I</code> / <code>INVENTORY</code>: Lists equipped and stored hardware.</li>
+    </ul>
+    <h3>Action & Progression</h3>
+    <ul>
+        <li><code>A</code> / <code>KILL &lt;target&gt;</code>: Engage in combat.</li>
+        <li><code>TRAIN &lt;stat&gt;</code>: Spend points on STR, INT, WIL, AGI, HEA, or CHA.</li>
+        <li><code>&lt;ABILITY&gt; &lt;target&gt;</code>: Execute a class-specific ability.</li>
+    </ul>
+
+    <h2>World Structure</h2>
+    <p>The grid contains 8 distinct sectors:</p>
+    <ul>
+        <li><strong>The Slums</strong> (Lv 1-3)</li>
+        <li><strong>Neon District</strong> (Lv 2-5)</li>
+        <li><strong>Industrial Zone</strong> (Lv 3-6)</li>
+        <li><strong>Corporate Plaza</strong> (Lv 6-10)</li>
+        <li><strong>The Under-Grid</strong> (Lv 8-12)</li>
+        <li><strong>The Wastes</strong> (Lv 10-15)</li>
+        <li><strong>Data Nexus</strong> (Lv 12-18)</li>
+        <li><strong>The Undercity</strong> (Lv 15-20)</li>
+    </ul>
+
+    <h2>Combat System</h2>
+    <p>Combat rounds are influenced by your equipped weapon's <strong>Speed Bonus</strong>. Your Attack scales with <strong>STR</strong>, and Defense scales with <strong>AGI</strong>.</p>
+    <p><strong>PvP Protocol</strong>: Combat is allowed in all sectors except The Neon Hub. You can only attack players within 3 levels of your own.</p>
+
+    <h2>Character Progression</h2>
+    <p>Each level-up grants <strong>5 Stat Points</strong>. Use the <code>TRAIN</code> command to improve:</p>
+    <ul>
+        <li><strong>STR</strong>: Increases Attack.</li>
+        <li><strong>INT/WIL</strong>: Increases Max Mana and Ability Damage.</li>
+        <li><strong>AGI</strong>: Increases Defense.</li>
+        <li><strong>HEA</strong>: Increases Max HP.</li>
+        <li><strong>CHA</strong>: Increases Trickster ability success.</li>
+    </ul>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

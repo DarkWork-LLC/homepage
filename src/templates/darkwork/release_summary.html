@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkworks Lab - Release Summary - Dark Work, LLC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>Darkworks Lab Release Summary</h1>
+<p><strong>Package:</strong> <code>com.darkworks.lab</code>
+<strong>Version:</strong> 1.0.32
+<strong>Release target:</strong> Android; Linux is also present as a desktop target
+<strong>Privacy model:</strong> local-first monitoring</p>
+<blockquote>
+<p><strong>Educational use only:</strong> This release is for learning, experimentation, and authorized defensive research. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use this application.</p>
+</blockquote>
+<h2>Current scope</h2>
+<p>This release provides a Flutter Material 3 interface for:</p>
+<ul>
+<li>Dashboard status, perimeter scan trigger, Bluetooth/network counts, and theme switching.</li>
+<li>Bluetooth and local network device discovery and filtering.</li>
+<li>Network host/port scanning, security reports, and event logs.</li>
+<li>Hardware sensor monitoring where supported.</li>
+<li>System, memory, battery, network identity, socket, and aggregate telemetry.</li>
+<li>Configurable file integrity scan setting (disabled by default). Scanning uses the MediaStore API when enabled — no All Files Access permission is requested. Scanning logic is currently commented out pending the MediaStore integration, which will be completed in a future release.</li>
+<li>Local event logs and application settings.</li>
+</ul>
+<p>The dashboard environment-alert area currently presents a secure empty state. AI/Intelligence screens and related provider wiring remain commented out and are not user-accessible features in this release.</p>
+<h2>Platform notes</h2>
+<p>Android is the publishing target. Linux is a supported Flutter desktop build target in the repository but has different permissions and hardware availability. The current app does not include Windows-specific source, IOS, or a cloud backend (yet).</p>
+<h2>Privacy and safety</h2>
+<p>The app is designed to process monitoring data on the device. Permissions and feature availability vary by platform. Results are diagnostic and may be incomplete because of inaccessible files, unavailable sensors, permissions, network configuration, or unsupported SDR hardware. Users must review findings before taking action.
+```</p>
+<p>See <a href="README.md">README.md</a>, <a href="USER_GUIDE.md">USER_GUIDE.md</a>, and <a href="PRIVACY_POLICY.md">PRIVACY_POLICY.md</a> for current usage and privacy details.</p>
+<h2>Release notes for Google Play</h2>
+<p><strong>Version 1.0.32 — Scoped Storage &amp; MediaStore Migration</strong></p>
+<p>This release migrates file access from All Files Access (<code>MANAGE_EXTERNAL_STORAGE</code>) to the MediaStore API, in compliance with the Google Play Store policy.</p>
+<ul>
+<li><strong>Storage permissions</strong> changed to granular <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, and <code>READ_MEDIA_AUDIO</code> (Android 13+) and <code>READ_EXTERNAL_STORAGE</code> (Android &lt; 33). <code>MANAGE_EXTERNAL_STORAGE</code> and <code>WRITE_EXTERNAL_STORAGE</code> are no longer requested.</li>
+<li><strong>File Integrity Scan</strong> is now a configurable core setting, disabled by default to comply with the "No Access to Files" policy. It can be enabled in Settings.</li>
+<li>Storage permissions are no longer requested at startup — they are only requested when the user enables file scanning and initiates a scan.</li>
+<li>File scanning logic is temporarily disabled (commented out) while the MediaStore integration is completed. The scanning UI now shows a clear disabled state with guidance to enable the setting.</li>
+<li>Added <code>contentUri</code> support to <code>FileScanResult</code> for future MediaStore-based queries and deletion.</li>
+<li>Updated Privacy Policy and Google Play Upload Guide to reflect scoped storage changes.</li>
+</ul>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

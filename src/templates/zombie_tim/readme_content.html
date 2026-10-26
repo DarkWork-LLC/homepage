@@ -1,47 +1,44 @@
+{% raw %}
 <h1>🧟 Zombie Tim 🧟</h1>
-
 <p><strong>Zombie Tim</strong> is a cross-platform, AI-powered personal assistant with a twist—he's undead! Tim lives in your device and helps you manage your life while satisfying his hunger for knowledge (and brains).</p>
-
 <p>Built with <strong>Flutter</strong>, Zombie Tim runs seamlessly on Android, iOS, Web, Linux, macOS, and Windows.</p>
-
 <h2>✨ Features</h2>
-
 <ul>
-    <li><strong>🧠 Interactive Chat</strong>: Talk to Tim via a blood-splattered, animated interface. He responds with a unique zombie personality and learns from your conversations.</li>
-    <li><strong>📅 Proactive Assistant</strong>: Tim can manage your schedule:
-        <ul>
-            <li><strong>Reminders</strong>: Set time-based alerts so you never forget a thing.</li>
-            <li><strong>Task Management</strong>: Keep a "to-do" list with due dates and priorities.</li>
-            <li><strong>Notes</strong>: Capture quick thoughts or detailed logs in Tim's digital brain.</li>
-        </ul>
-    </li>
-    <li><strong>📚 Dynamic Vocabulary</strong>: Tim learns as you go. Use <code>eat word &lt;word&gt;</code> to expand his knowledge base.</li>
-    <li><strong>🔍 Brain Scanning</strong>: Tim can forage through your device storage to find information or "sniff out" new words from the web.</li>
-    <li><strong>💻 Developer Tools</strong>: Tim is a tech-savvy zombie. He can generate code snippets in various languages and explain complex technical concepts.</li>
-    <li><strong>🎱 Magic 8-Ball</strong>: Get undead predictions for your most pressing questions.</li>
-    <li><strong>🌍 World Information</strong>: Ask Tim about the weather, latest news, current time, or even stock prices.</li>
-    <li><strong>🐦 Social Media</strong>: Tim can interact with X/Twitter (login, fetch tweets, and reply).</li>
-    <li><strong>💻 System Integration</strong>: On desktop platforms, Tim can help with system tasks, run commands, and provide system status reports.</li>
-    <li><strong>🔒 Security Monitoring</strong>: Tim can perform security audits via chat commands - check your network connections, scan for suspicious activity, and monitor Bluetooth devices.</li>
+<li><strong>🧠 Interactive Chat</strong>: Talk to Tim via a blood-splattered, animated interface. He responds with a unique zombie personality and learns from your conversations.</li>
+<li><strong>⚡ Fast Learning</strong>: Tim absorbs up to 30 new words per message in a single local transaction — no network calls or artificial delays in the chat path — then quietly fetches real dictionary definitions for the newest words in the background.</li>
+<li><strong>💾 Real Memory</strong>: Teach him things — <em>"my name is…"</em>, <em>"the capital of France is Paris"</em>, <em>"I like pizza"</em> — and he stores them in his knowledge base. Ask later (even rephrased, or after an app restart) and he'll actually answer, using exact-match lookup plus a ranked keyword search. He can also recall past conversations ("what did I say about X?").</li>
+<li><strong>📈 Evolving Intelligence</strong>: Tim's language tier climbs monotonically with interactions and vocabulary — the more you chat and teach, the sharper (and more "with it") he gets. He never glitches on a direct question.</li>
+<li><strong>📅 Proactive Assistant</strong>: Tim can now manage your schedule:<ul>
+<li><strong>Reminders</strong>: Set time-based alerts — <em>"remind me to … in 2 hours"</em> or <em>"… at 5pm"</em> (defaults to about an hour). List them with <code>show reminders</code>.</li>
+<li><strong>Task Management</strong>: Keep a "to-do" list — <code>add task</code>, <code>show tasks</code>, <code>overdue tasks</code>, <code>complete task [id]</code>.</li>
+<li><strong>Notes</strong>: Capture quick thoughts — <code>take note</code>, <code>show notes</code>, <code>find note [query]</code>.</li>
 </ul>
-
+</li>
+<li><strong>📚 Dynamic Vocabulary</strong>: Tim learns as you go. Use <code>eat word &lt;word&gt;</code> to expand his knowledge base, and <code>vocabulary</code> / <code>brain stats</code> to see his progress.</li>
+<li><strong>🔍 Brain Scanning</strong>: Tim can forage through your device storage to find information — or perform a <strong>Mass Vocabulary Feast</strong>, devouring <strong>5,000</strong> random words from the web (fetched in parallel) to boost his IQ.</li>
+<li><strong>🎱 Magic 8-Ball</strong>: Get undead predictions for your most pressing questions.</li>
+<li><strong>🌍 World Information</strong>: Ask Tim about the weather, latest news, current time, or even stock prices.</li>
+<li><strong>💻 System Integration</strong>: On desktop platforms, Tim can help with system tasks, run commands, and provide system status reports — plus care &amp; feeding via <code>system health</code>, <code>check updates</code>, <code>run diagnostics</code>, and <code>update system</code>.</li>
+<li><strong>🩺 System Health Dashboard</strong>: The <strong>Settings</strong> screen shows live Brain Stats, storage permissions, and a <strong>System Health</strong> card with a 0–100 health score, disk/memory/CPU usage, uptime, process count and detected issues — with one-tap <strong>Run Vitals Check</strong> and <strong>Install Updates</strong> actions.</li>
+<li><strong>🔒 Security Monitoring</strong>: Tim can perform security audits via chat commands - check your network connections, scan for suspicious activity, and monitor Bluetooth devices.</li>
+<li><strong>🩺 Daily Summary</strong>: Ask for a <code>daily summary</code> to get an at-a-glance view of your day, or <code>summarize</code> to see what Tim remembers of your conversations.</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Security:</strong> <code>zombie-release.zip</code> contains a <strong>private signing key</strong>. Never commit it or post it publicly, and back it up somewhere safe — if that key is lost you can no longer publish updates to the same Play Store listing. All keystores (<code>*.jks</code>, <code>*.keystore</code>, <code>*.p12</code>, <code>*.pfx</code>, …), certificates and private keys (<code>*.pem</code>, <code>*.key</code>, <code>*.crt</code>, <code>*.cer</code>, <code>*.der</code>, …), Apple provisioning profiles, <code>key.properties</code> files and distributables (<code>*.apk</code>, <code>*.aab</code>, <code>*.ipa</code>) are ignored by <code>.gitignore</code>. If one is ever committed, treat it as compromised and rotate it.</p>
+</blockquote>
 <h2>🔒 Security</h2>
-
 <p>Zombie Tim can perform security audits on your system via chat commands. Type <code>security scan</code>, <code>check network</code>, or <code>check bluetooth</code> in the chat interface to get detailed security reports.</p>
-
 <h3>Security Commands</h3>
 <ul>
-    <li><strong><code>security scan</code></strong>: Full security audit (network, Bluetooth, suspicious activity)</li>
-    <li><strong><code>check network</code></strong>: Quick network overview</li>
-    <li><strong><code>check bluetooth</code></strong>: Bluetooth device monitoring</li>
+<li><strong><code>security scan</code></strong> or <strong><code>check security</code></strong>: Full security audit (network, Bluetooth, suspicious activity)</li>
+<li><strong><code>check network</code></strong> or <strong><code>network status</code></strong>: Quick network overview</li>
+<li><strong><code>check bluetooth</code></strong> or <strong><code>bluetooth status</code></strong>: Bluetooth device monitoring</li>
 </ul>
-
-<p>All scans are performed locally on your device. No data is transmitted.</p>
-
+<p>All scans are performed locally on your device. No data is transmitted. See <a href="./USER_GUIDE.md">USER_GUIDE.md</a> for detailed usage.</p>
 <h2>🔒 Privacy</h2>
-
-<p>Your data stays in your grave. All interactions, reminders, tasks, and notes are stored <strong>locally</strong> on your device using an encrypted-ready SQLite database. No personal data is sent to our servers.</p>
-
-<hr>
-
+<p>Your data stays in your grave. All interactions, reminders, tasks, and notes are stored <strong>locally</strong> on your device using an encrypted-ready SQLite database. No personal data is sent to our servers. See <a href="./PRIVACY_POLICY.md">PRIVACY_POLICY.md</a> for details.</p>
+<h2>🤝 Contributing</h2>
+<p>Tim's brain is always expanding! If you'd like to contribute to his development, feel free to submit a pull request or report issues.</p>
+<hr />
 <p><em>Zombie Tim: Keeping your life organized, one brain at a time.</em> 🧟‍♂️🧠</p>
+{% endraw %}

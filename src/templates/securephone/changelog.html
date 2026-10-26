@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePhone - Changelog - Dark Work, LLC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+    <h1>Changelog — SecurePhone</h1>
+<p>All notable changes tracked in Keep-a-Changelog format. Versioning: <code>pubspec.yaml</code> (<code>major.minor.patch+build</code>).</p>
+<h2>[Unreleased]</h2>
+<h3>Status — 2026-09-17</h3>
+<p>Package version remains <code>securephone</code> <code>1.0.0+1</code>; these changes are a prototype,
+not a production release. Recorded verification: successful debug APK build,
+clean analysis, <strong>47 tests passed and one live Tor test skipped</strong>. Tor libraries
+were inspected for ARMv7, ARM64 and x86_64. Android native startup/bootstrap and
+stop/restart remain unverified: no device or configured emulator was available.
+The Kotlin migration warning did not fail the build. Release signing still
+uses debug keys; iOS has no Tor.framework binding.</p>
+<p>Known gaps: endpoint flags do not update the host allow-list; default services
+and pins are placeholders. TLS SPKI checks use a bad-certificate callback,
+not every TLS connection. SMS receive currently attempts decryption twice,
+which can consume ratchet state. E2EE is not enabled in the dashboard, and
+voice media is unfinished. See <a href="./SECURITY.md">security limitations</a>.</p>
+<h3>Added</h3>
+<ul>
+<li><strong>Embedded Tor (tor-android)</strong>: <code>info.guardianproject:tor-android</code> + <code>jtorctl</code> bundled into the APK (Guardian Project Maven repo in <code>settings.gradle.kts</code>). <code>TorPlatformHandler.kt</code> binds <code>org.torproject.jni.TorService</code>, starts/stops it via the new <code>securephone/tor</code> MethodChannel and reports the SOCKS port from the control connection (<code>net/listeners/socks</code>). <code>TorService.startTor</code> prefers the embedded runtime and falls back to spawning a system/bundled binary elsewhere; the <code>isTorRunning</code> SOCKS5-handshake probe contract is unchanged. Android manifest gains the <code>TorService</code> declaration, <code>FOREGROUND_SERVICE</code>(+special-use) and <code>POST_NOTIFICATIONS</code> permissions; <code>minSdk</code> floored at 24.</li>
+<li><strong>Experimental crypto</strong>: custom X25519/HKDF-SHA256/ChaCha20-Poly1305 ratchet helpers and basic round-trip/out-of-order tests. This is <strong>not Signal/X3DH</strong>; bundles are unsigned and authenticated per-peer persistence and adversarial validation are missing.</li>
+<li><strong>SMS E2EE + receipts</strong>: <code>SmsService</code> gains an optional <code>e2ee</code> layer — <code>sendSms</code> encrypts the body into a ratchet envelope before JSON-encode; <code>fetchMessages</code> decrypts envelopes, marks <code>e2ee</code> per message, merges <code>/receipts</code> into each message as <code>receipt</code> and adds <code>ackMessageReceipt</code>.</li>
+<li><strong>Self-hosted onions</strong>: default SMS/VoIP/PSTN/signaling endpoints overridable at build time via <code>--dart-define</code> (<code>SECUREPHONE_SMS_ONION</code>, <code>SECUREPHONE_VOIP_ONION</code>, <code>SECUREPHONE_PSTN_ONION</code>, <code>SECUREPHONE_VOIP_SIGNALING_HOST/PORT</code>).</li>
+<li><strong>WebRTC draft</strong>: peer-connection and socket-signaling scaffolding, socket-first ICE with HTTP fallback, and teardown APIs. Relay-only ICE is configured with no TURN server, so media cannot connect. Session startup does not create an outgoing offer or attach local audio; the dashboard only sends REST call requests. Tor signaling does not tunnel media.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Tor transport/startup improvements (the current live test is opt-in and was skipped; these changes are not Android end-to-end verification):</li>
+<li><code>TorService</code> now finds bundled Tor installations (Tor expert bundle under <code>~/.local/share/securephone/tor/</code> or <code>$XDG_DATA_HOME/securephone/tor/</code>, Tor Browser layout, system paths), injecting <code>LD_LIBRARY_PATH</code> for the bundle's private libevent/libssl and using a dedicated writable <code>--DataDirectory</code> so it never collides with a system daemon's <code>~/.tor</code> lock.</li>
+<li>Added <code>waitForBootstrap()</code>: the SOCKS port accepts connections before Tor finishes bootstrapping, so early requests fail with SOCKS <code>serverError</code>. The app now waits until a real circuit is built (probe: payload-less SOCKS5 CONNECT to the Tor Project's onion) before declaring "Tor: connected"; the badge shows "Tor: connecting…" meanwhile, and pin initialization runs only after bootstrap.</li>
+<li>Daemon exiting during startup (bad flags, port conflict, unwritable directory) now fails fast with <code>Tor daemon exited during startup (exit code N)</code> instead of stalling until timeout.</li>
+<li>Tor never connected in practice:</li>
+<li><code>NetworkClient</code> routed onion requests through <code>socks5_proxy</code> with <code>InternetAddress(host)</code>, which throws for non-DNS-resolvable <code>.onion</code> names (<code>Invalid internet address '…'</code>) — every Tor-routed request failed before reaching the proxy. Onion hostnames are now forwarded verbatim as SOCKS5 domain requests (and IP-literal targets are rejected outright to prevent clearnet leaks).</li>
+<li><code>isTorRunning</code> used a bare TCP connect with a 1 s timeout, probed immediately after <code>Process.start</code> (before Tor had bound its listener), and gave false positives for any TCP squatter. It now performs a real SOCKS5 greeting handshake; <code>startTor</code> polls up to 90 s.</li>
+<li><code>startTor</code> swallowed spawn errors (missing <code>tor</code> binary on desktop, no binary on Android at all). Failures now surface via <code>lastError</code>/<code>spawnFailed</code>, the dashboard shows the reason, and the refresh FAB re-attempts startup (also picking up an externally running daemon, e.g. a system tor or Orbot).</li>
+<li>Tor's stdout/stderr pipes were never drained (daemon could stall on a full pipe) and <code>stopTor</code> leaked an unknown-state process; both handled now.</li>
+<li>HTTPS-over-SOCKS pinned-cert callback was never wired into the TLS upgrade; pinning now runs inside the SOCKS connection builder.</li>
+<li>
+<p>Pin provisioning failures other than <code>PinValidationException</code> (e.g. TLS/handshake errors while pins were still placeholders) escaped <code>initializePinning</code>; all failures now degrade to the baked-in allow-list as documented.</p>
+</li>
+<li>
+<p>Android lifecycle cleanup now unbinds/stops the owned service, rejects a reported SOCKS-port mismatch, and cleans up failed starts without binary-spawn fallback. Mocked lifecycle tests cover startup, cleanup and restart; native behavior remains unverified.</p>
+</li>
+<li>Updated all six project Markdown files to distinguish verified packaging from unverified operation and unfinished security/media features; preserved proprietary license terms and corrected bundled-Tor notices.</li>
+</ul>
+<h2>[1.0.0] — 2026-09-15 (initial scaffold, not a validated release)</h2>
+<h3>Added</h3>
+<ul>
+<li>Flutter scaffold (<code>securephone</code> 1.0.0+1, Dart ^3.13.3) with Android/iOS/Linux/macOS/Windows/Web shells.</li>
+<li><code>TorService</code>: spawn <code>tor --SocksPort</code>, 1 s SOCKS liveness probe, <code>stopTor</code>, <code>proxyAddress</code>.</li>
+<li><code>NetworkClient</code> singleton: SOCKS5-routed <code>IOClient</code> (<code>socks5_proxy</code> + <code>http</code>/<code>io_client</code>) + raw <code>connectSocket</code> for signaling; test-injectable client.</li>
+<li><code>SmsService</code>: <code>POST /send</code> + <code>GET /messages</code> against <code>tor-sms-service.onion</code> (JSON over Tor).</li>
+<li><code>VoipService</code>: <code>initiateCall</code> via <code>{_signalingUrl}/call/initiate</code> (POST JSON, <code>200 == success</code>, swallow → false), <code>callPstn</code> via <code>tor-pstn-gateway.onion/dial</code>, <code>sendIceCandidate</code> + <code>connectToSignalingSocket</code> (<code>tor-voip-signaling.onion:8080</code>).</li>
+<li><code>MainScreen</code> dashboard: Tor badge, secure contacts + one-tap call, PSTN dialer, Secure SMS dialog, refresh FAB, <code>AppLifecycleListener.onDetach → stopTor</code>.</li>
+<li>Tests: <code>tor_service</code>, <code>network_client</code>, <code>sms_service</code> (MockClient), <code>voip_service</code> suites.</li>
+</ul>
+<h3>Dependencies</h3>
+<ul>
+<li><code>cupertino_icons ^1.0.8</code>, <code>socks5_proxy ^2.1.1</code>, <code>http ^1.6.0</code>, <code>path_provider ^2.1.6</code>, <code>flutter_webrtc ^1.6.2+hotfix.2</code>; dev <code>flutter_lints ^6.0.0</code>, <code>flutter_test</code>.</li>
+</ul>
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

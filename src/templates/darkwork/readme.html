@@ -3,12 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darkworks Lab - README</title>
+    <title>Darkworks Lab - README - Dark Work, LLC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container document-content">
-    {% include 'darkwork/readme_content.html' %}
+    <h1>Darkworks Lab</h1>
+<p><strong>Application:</strong> Darkwork Labs
+<strong>Android package:</strong> <code>com.darkworks.lab</code>
+<strong>Version:</strong> 1.0.32
+<strong>Platforms:</strong> Android and Linux
+<strong>Framework:</strong> Flutter / Dart</p>
+<p>Darkworks Lab is a local-first security monitoring application. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, and event logging into one responsive Flutter interface.</p>
+<blockquote>
+<p><strong>Educational use only:</strong> This application is provided for learning, experimentation, and authorized defensive research. It is not professional security advice or a guarantee of protection. The developer assumes no responsibility or liability for any loss, damage, data loss, security incident, system change, or other consequence arising from use or inability to use this application. Use it only on systems and data you are authorized to inspect, and independently verify every result before taking action.</p>
+</blockquote>
+<p>The current UI is a monitoring and inspection tool. It does not include a cloud backend, AI/LLM analysis, or a Windows target. Availability of individual sensors, network data, filesystem access, and SDR features depends on the platform and permissions.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Dashboard:</strong> security status, perimeter scan trigger, Bluetooth/network counts, discovery overview, and theme toggle.</li>
+<li><strong>Device discovery:</strong> Bluetooth/BLE and local network device lists with type filtering and refresh.</li>
+<li><strong>Network security:</strong> network scanning, port/service assessment, security reports, and event logs.</li>
+<li><strong>Sensor monitor:</strong> accelerometer, gyroscope, magnetometer, ambient light, battery, and location streams when available.</li>
+<li><strong>System monitor:</strong> device information, CPU, memory, battery, network identity, sockets, and metric aggregates.</li>
+<li><strong>File integrity scan:</strong> configurable scan setting (disabled by default) with MediaStore API integration coming in a future release. Shows disabled state with guidance when off.</li>
+<li><strong>Event logs:</strong> locally retained application events with level-based display and date filtering.</li>
+<li><strong>Radio monitor:</strong> SDR hardware detection and spectrum/status information.</li>
+<li><strong>Settings:</strong> application settings and appearance controls exposed by the current UI.</li>
+</ul>
+<h2>Architecture</h2>
+<p>The app uses Flutter Material 3 and Provider-based <code>ChangeNotifier</code> services:</p>
+<ul>
+<li><code>SecurityService</code> — perimeter scanning and device discovery.</li>
+<li><code>NetworkSecurityService</code> — network host, port, and security checks.</li>
+<li><code>SensorService</code> — hardware sensor streams.</li>
+<li><code>SystemMonitorService</code> — system and performance telemetry.</li>
+<li><code>FilesystemScannerService</code> — local file scanning (MediaStore API, disabled by default).</li>
+<li><code>RadioFrequencyService</code> — SDR detection and radio status.</li>
+<li><code>LoggingService</code> and <code>DatabaseService</code> — local event/log persistence.</li>
+<li><code>ThemeService</code> — light/dark Material 3 themes and shared colors.</li>
+</ul>
+<p>Screens are under <code>lib/screens/</code>, reusable presentation is under <code>lib/widgets/</code>, and tests are under <code>test/</code>.</p>
+<h2>Development</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Flutter 3.x with Dart 3.x</li>
+<li>Android toolchain for Android builds</li>
+<li>Linux GTK build dependencies for Linux builds</li>
+</ul>
+<h3>Common commands</h3>
+<pre><code class="language-bash">flutter pub get
+flutter analyze
+flutter test
+flutter run -d android
+flutter run -d linux
+flutter build apk --debug
+flutter build linux --debug
+</code></pre>
+<p>The repository also provides equivalent convenience targets in <code>Makefile</code> (for example <code>make get</code>, <code>make lint</code>, <code>make test</code>, and <code>make build-android</code>). The <code>Makefile</code> assumes Flutter is installed at <code>~/flutter/bin/flutter</code>; the direct Flutter commands above are portable when Flutter is on <code>PATH</code>.</p>
+<h2>Platform and permissions</h2>
+<p>Android declares internet, network-state, Wi-Fi-state, Bluetooth, location, notification, and storage-related permissions in <code>android/app/src/main/AndroidManifest.xml</code>. The app follows the Google Play Store "All Files Access" policy and does <strong>not</strong> request <code>MANAGE_EXTERNAL_STORAGE</code>. Storage access is scoped to the MediaStore API via granular permissions (<code>READ_MEDIA_IMAGES/VIDEO/AUDIO</code> on Android 13+, <code>READ_EXTERNAL_STORAGE</code> on Android &lt; 33) and is only requested at runtime when the user enables the <strong>File Integrity Scan</strong> core setting and initiates a scan. Scanning is disabled by default. Runtime location and Bluetooth permissions are requested on the first launch on supported mobile platforms. Linux has no Android permission dialogs; platform feature support varies by host and hardware.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="USER_GUIDE.md">User Guide</a></li>
+<li><a href="PRIVACY_POLICY.md">Privacy Policy</a></li>
+<li><a href="GOOGLE_PLAY_UPLOAD_GUIDE.md">Google Play Upload Guide</a></li>
+<li><a href="RELEASE_SUMMARY.md">Release Summary</a></li>
+<li><a href="LICENSE.md">License</a></li>
+</ul>
+<h2>Ownership</h2>
+<p>Copyright © 2025–2026 Darkworks Lab and darkworkllc@gmail.com. Proprietary software; see <a href="LICENSE.md">LICENSE.md</a>.</p>
     </div>
 <div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
 </body>

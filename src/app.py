@@ -14,7 +14,8 @@ PROJECTS = [
     'darkwork',
     'zombie_tim',
     'battle_chess_mobile',
-    'nervous'
+    'nervous',
+    'securephone'
 ]
 
 # Map project slugs to their display names
@@ -24,7 +25,8 @@ PROJECT_NAMES = {
     'darkwork': 'Darkworks Lab',
     'zombie_tim': 'Zombie Tim',
     'battle_chess_mobile': 'Battle Chess',
-    'nervous': 'Nervous?'
+    'nervous': 'Nervous?',
+    'securephone': 'SecurePhone'
 }
 
 # Map project slugs to their descriptions
@@ -34,7 +36,8 @@ PROJECT_DESCRIPTIONS = {
     'darkwork': 'Darkworks Lab is a local-first security monitoring application built with Flutter for Android and Linux. It brings Bluetooth and network discovery, hardware telemetry, system monitoring, filesystem integrity scanning, event logging, and SDR status into one responsive interface.',
     'zombie_tim': 'Zombie Tim is the world\'s first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!',
     'battle_chess_mobile': 'A visceral, cartoon-style chess game built with Flutter and the Flame engine. Featuring chunky pieces with big personalities and high-impact combat animations.',
-    'nervous': 'A state-of-the-art Flutter mobile application developed by Dark Work, LLC that measures real-time nervousness, anxiety, and physiological stress using phone sensors and paired smartwatch biometrics.'
+    'nervous': 'A state-of-the-art Flutter mobile application developed by Dark Work, LLC that measures real-time nervousness, anxiety, and physiological stress using phone sensors and paired smartwatch biometrics.',
+    'securephone': 'SecurePhone is a communications prototype with Tor-backed SMS relay requests and call signaling.'
 }
 
 # Map project slugs to their template name prefix
@@ -44,7 +47,8 @@ TEMPLATE_PREFIXES = {
     'darkwork': 'darkwork',
     'zombie_tim': 'zombie_tim',
     'battle_chess_mobile': 'battle_chess_mobile',
-    'nervous': 'nervous'
+    'nervous': 'nervous',
+    'securephone': 'securephone'
 }
 
 # Map project slugs to live links
@@ -56,14 +60,24 @@ DOC_TYPES = {
     'readme': 'README',
     'user_guide': 'User Guide',
     'license': 'License',
-    'privacy': 'Privacy Policy'
+    'privacy': 'Privacy Policy',
+    'architecture': 'Architecture',
+    'changelog': 'Changelog',
+    'security': 'Security',
+    'release_summary': 'Release Summary',
+    'release_notes': 'Release Notes'
 }
 
 DOC_TYPE_NAMES = {
     'readme': 'README',
     'user_guide': 'User Guide',
     'license': 'License',
-    'privacy': 'Privacy Policy'
+    'privacy': 'Privacy Policy',
+    'architecture': 'Architecture',
+    'changelog': 'Changelog',
+    'security': 'Security',
+    'release_summary': 'Release Summary',
+    'release_notes': 'Release Notes'
 }
 
 # Map doc_type to template suffix
@@ -71,7 +85,12 @@ DOC_TYPE_SUFFIXES = {
     'readme': 'readme',
     'user_guide': 'userguide',
     'license': 'license',
-    'privacy': 'privacy'
+    'privacy': 'privacy',
+    'architecture': 'architecture',
+    'changelog': 'changelog',
+    'security': 'security',
+    'release_summary': 'release_summary',
+    'release_notes': 'release_notes'
 }
 
 
