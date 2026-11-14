@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNES Gems - Privacy Policy - Dark Work</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+
+    <div class="doc-nav" style="margin-bottom: 20px; padding: 12px; background: rgba(0, 123, 255, 0.08); border-radius: 6px; border: 1px solid rgba(0, 123, 255, 0.2);">
+        <strong>Quick Navigation:</strong>
+        <a href="/snesgems/readme">README</a> &bull;
+        <a href="/snesgems/user_guide">User Guide</a> &bull;
+        <a href="/snesgems/privacy">Privacy Policy</a> &bull;
+        <a href="/snesgems/license">License</a>
+        &bull; <a href="https://hoobylab.pythonanywhere.com/" target="_blank" style="font-weight: bold; color: #007bff;">Play Live Emulator &rarr;</a>
+    </div>
+
+    <h1>Privacy Policy — online_snesgems_emulator</h1>
+
+    <p><strong>Effective date:</strong> November 14, 2026<br>
+    <strong>Project:</strong> online_snesgems_emulator — a Django web application that emulates Super Nintendo (SNES) games in the browser and includes a WYSIWYG page editor.</p>
+
+    <hr>
+
+    <h2>1. No personal accounts or tracking</h2>
+    <p>The application does <strong>not</strong> require you to create an account, does <strong>not</strong> collect your name, email address, or any other personally identifiable information, and does <strong>not</strong> run analytics, advertising, or tracking scripts. There are no third-party services, no external CDNs, and no social-media widgets integrated into the app.</p>
+
+    <h2>2. Data that stays on your device (client-side)</h2>
+    <p>The SNES emulator runs entirely in your web browser (Snes9x compiled to WebAssembly). The following data is stored <strong>only in your browser</strong> and is never sent to the server:</p>
+    <ul>
+        <li><strong>Save states:</strong> IndexedDB (database <code>snes-emu</code>, store <code>save-states</code>) — Save and reload in-game progress.</li>
+        <li><strong>Cartridge SRAM / battery-backed saves:</strong> Origin Private File System (OPFS) — Persist game saves across sessions.</li>
+        <li><strong>Button / key bindings:</strong> <code>localStorage</code> — Remember your controller remapping.</li>
+        <li><strong>Audio mute preference:</strong> <code>localStorage</code> / in-memory config.</li>
+    </ul>
+
+    <h2>3. Data stored on the server (Django backend)</h2>
+    <p>The Django backend stores ROM library metadata, WYSIWYG pages authored through <code>/wysiwyg/</code>, and standard Django admin user credentials in SQLite (<code>db.sqlite3</code>).</p>
+
+    <h2>Related Documentation</h2>
+    <ul>
+        <li>Review the <strong><a href="/snesgems/readme">README</a></strong> for project structure and setup.</li>
+        <li>Check the <strong><a href="/snesgems/user_guide">User Guide</a></strong> for instructions on controls, save states, and the page editor.</li>
+        <li>Consult the <strong><a href="/snesgems/license">License</a></strong> terms.</li>
+    </ul>
+
+    <h2>Legal Disclaimer</h2>
+    <p><em>This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact timotheuzi@hotmail.com for support.</em></p>
+
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

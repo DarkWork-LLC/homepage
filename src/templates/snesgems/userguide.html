@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNES Gems - User Guide - Dark Work</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
+
+    <div class="doc-nav" style="margin-bottom: 20px; padding: 12px; background: rgba(0, 123, 255, 0.08); border-radius: 6px; border: 1px solid rgba(0, 123, 255, 0.2);">
+        <strong>Quick Navigation:</strong>
+        <a href="/snesgems/readme">README</a> &bull;
+        <a href="/snesgems/user_guide">User Guide</a> &bull;
+        <a href="/snesgems/privacy">Privacy Policy</a> &bull;
+        <a href="/snesgems/license">License</a>
+        &bull; <a href="https://hoobylab.pythonanywhere.com/" target="_blank" style="font-weight: bold; color: #007bff;">Play Live Emulator &rarr;</a>
+    </div>
+
+    <h1>User Guide — online_snesgems_emulator</h1>
+
+    <p>A Python-Django web application that runs Super Nintendo (SNES) games directly in your web browser, plus a Django WYSIWYG rich-text page editor.</p>
+
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#system-requirements">System requirements</a></li>
+        <li><a href="#first-launch">First launch</a></li>
+        <li><a href="#playing-a-game">Playing a game</a></li>
+        <li><a href="#controls">Controls</a></li>
+        <li><a href="#button-configuration">Button configuration (key remapping)</a></li>
+        <li><a href="#save-states">Save states</a></li>
+        <li><a href="#settings-menu">Settings menu</a></li>
+        <li><a href="#audio">Audio</a></li>
+        <li><a href="#wysiwyg-page-editor">WYSIWYG page editor</a></li>
+        <li><a href="#django-admin">Django admin</a></li>
+        <li><a href="#deployment-on-pythonanywhere">Deployment on PythonAnywhere</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+
+    <hr>
+
+    <h2 id="overview">1. Overview</h2>
+    <p>The emulator runs <strong>client-side in your browser</strong> (Snes9x compiled to WebAssembly). The Django backend only serves the user interface, the ROM library metadata, and the binary ROM streams; the emulation itself happens locally, so there is no server-side lag during play.</p>
+    <p>The app also includes a WYSIWYG rich-text page editor at <code>/wysiwyg/</code> for authoring HTML pages backed by SQLite.</p>
+
+    <h2 id="system-requirements">2. System requirements</h2>
+    <ul>
+        <li>A modern desktop or mobile browser with WebAssembly and IndexedDB support (Chrome, Edge, Firefox, Safari).</li>
+        <li>A <strong>secure context</strong> for save states: <code>https://</code> in production, or <code>http://localhost</code> when running locally.</li>
+    </ul>
+
+    <h2 id="first-launch">3. First launch</h2>
+    <pre><code>pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_roms
+python manage.py runserver</code></pre>
+    <p>Then open <a href="https://hoobylab.pythonanywhere.com/" target="_blank">https://hoobylab.pythonanywhere.com/</a> or local development server.</p>
+
+    <h2 id="playing-a-game">4. Playing a game</h2>
+    <ol>
+        <li>Open the app. The ROM library lists the bundled games.</li>
+        <li>Click a game card (or select it from the dropdown) to load it.</li>
+        <li>Press <strong>Play</strong> to start emulation.</li>
+    </ol>
+
+    <h2 id="controls">5. Controls</h2>
+    <p>Supports Keyboard (Arrow keys + SNES diamond mapping), USB Gamepads, and On-screen Virtual Gamepad (touch, mouse, and trackpad support with visual glow feedback).</p>
+
+    <h2 id="wysiwyg-page-editor">10. WYSIWYG page editor</h2>
+    <p>Use the editor at <code>/wysiwyg/</code> to create, edit, preview, and delete rich-text pages using native browser content editing.</p>
+
+    <h2>Related Documentation</h2>
+    <ul>
+        <li>Review the <strong><a href="/snesgems/readme">README</a></strong> for feature lists and architecture.</li>
+        <li>Read the <strong><a href="/snesgems/privacy">Privacy Policy</a></strong> regarding browser storage (IndexedDB & OPFS).</li>
+        <li>Consult the <strong><a href="/snesgems/license">License</a></strong> terms.</li>
+    </ul>
+
+    <h2>Legal Disclaimer</h2>
+    <p><em>This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact timotheuzi@hotmail.com for support.</em></p>
+
+    </div>
+<div style="padding: 20px; text-align: left;"><a href="/{{ project }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 1.2em;">&larr; Back to {{ project_name }} Product Page</a></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<div class="doc-nav" style="margin-bottom: 20px; padding: 12px; background: rgba(0, 123, 255, 0.08); border-radius: 6px; border: 1px solid rgba(0, 123, 255, 0.2);">
+    <strong>Quick Navigation:</strong>
+    <a href="/snesgems/readme">README</a> &bull;
+    <a href="/snesgems/user_guide">User Guide</a> &bull;
+    <a href="/snesgems/privacy">Privacy Policy</a> &bull;
+    <a href="/snesgems/license">License</a>
+    &bull; <a href="https://hoobylab.pythonanywhere.com/" target="_blank" style="font-weight: bold; color: #007bff;">Play Live Emulator &rarr;</a>
+</div>
+
+<h1>Online SNES Gems Emulator</h1>
+
+<p>A <strong>Python-Django web application</strong> that runs Super Nintendo (SNES) games directly in your web browser — playable on a desktop browser, a mobile phone or a trackpad — with save states persisted in the user's browser. It also includes a Django WYSIWYG rich-text page editor (<code>/wysiwyg/</code>) for authoring pages that can be deployed on PythonAnywhere.</p>
+
+<p><a href="https://hoobylab.pythonanywhere.com/" target="_blank" class="btn" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 10px 0;">Play Live on PythonAnywhere</a></p>
+
+<h2>Games bundled (10 ROMs)</h2>
+<ul>
+    <li><code>Beavis and Butt-Head (USA).sfc</code></li>
+    <li><code>Blackthorne (USA).sfc</code></li>
+    <li><code>Chrono Trigger (USA).sfc</code></li>
+    <li><code>Final Fantasy 2 (V1.1) (U).smc</code></li>
+    <li><code>Final Fantasy III (USA) (Rev 1).sfc</code></li>
+    <li><code>Metal Marines (USA).sfc</code></li>
+    <li><code>Ogre Battle - The March of the Black Queen (1).smc</code></li>
+    <li><code>Paperboy 2 (USA).sfc</code></li>
+    <li><code>True Lies (USA).sfc</code></li>
+    <li><code>WWF WrestleMania - The Arcade Game (USA).sfc</code></li>
+</ul>
+
+<h2>How it works</h2>
+<p>The emulation runs <strong>client-side in the browser</strong> (Snes9x compiled to WebAssembly, vendored under <code>static/snes/js/vendor/</code>). The Django backend serves the UI, the ROM metadata and the binary ROM streams; the heavy lifting happens in the browser, so there is no server-side latency and the app can run on a modest host.</p>
+
+<h3>Features</h3>
+<ul>
+    <li>Play bundled games in the browser (canvas rendering).</li>
+    <li>Controls: keyboard (arrows + SNES diamond layout), USB gamepads (polled automatically), on-screen virtual gamepad (touch + mouse + trackpad) with D-pad, shoulder buttons (L/R, Select, Start), action diamond (X,Y,A,B), and draggable thumbstick.</li>
+    <li><strong>Button Configuration</strong>: Reassign key bindings for all 12 controller buttons with <code>localStorage</code> persistence.</li>
+    <li><strong>Visual Feedback</strong>: Blue flash / glow effect when touching or clicking on-screen buttons.</li>
+    <li><strong>Audio Support</strong>: Robust Web Audio handling with Mute toggle and browser autoplay policy unlock.</li>
+    <li>Save states are stored in the user's browser (IndexedDB) and can be reloaded later — no server round-trip.</li>
+    <li>Cartridge SRAM (battery-backed saves) is auto-persisted to the browser's Origin Private File System (OPFS) every 15 s and on pause/destroy.</li>
+    <li>In-game settings menu (press Escape) for region, aspect, filter, volume, interpolation, sprite limit, etc.</li>
+    <li><strong>WYSIWYG rich-text page editor</strong> at <code>/wysiwyg/</code> — create, edit, preview and delete pages with formatted HTML content, backed by SQLite and the Django admin. No frontend build step or external CDN required.</li>
+</ul>
+
+<h2>Project structure</h2>
+<pre><code>online_snesgems_emulator/
+├── LICENSE                      # MIT License
+├── PRIVACY.md                   # Privacy policy
+├── README.md                    # Project overview
+├── USER_GUIDE.md                # End-user guide
+├── manage.py                    # Django CLI
+├── requirements.txt             # Django>=5.0
+├── roms/                        # Bundled SNES cartridge images (.sfc / .smc)
+├── static/                      # Static assets (CSS, JS, Snes9x WASM vendor files)
+├── src/                         # Python source
+│   ├── snes/                    # Emulator app
+│   ├── wysiwyg/                 # WYSIWYG page editor app
+│   └── snes_project/            # Django project settings
+└── validation/                  # Playwright end-to-end smoke test
+</code></pre>
+
+<h2>Documentation & Related Links</h2>
+<ul>
+    <li><strong><a href="/snesgems/user_guide">User Guide</a></strong>: Detailed instructions on controls, mobile touchpad play, save states, and the WYSIWYG editor.</li>
+    <li><strong><a href="/snesgems/privacy">Privacy Policy</a></strong>: Information on local browser storage (IndexedDB, OPFS) and server data.</li>
+    <li><strong><a href="/snesgems/license">License</a></strong>: Terms and third-party notices.</li>
+</ul>
+
+<h2>Legal Disclaimer</h2>
+<p><em>This software is provided for educational and entertainment purposes only, "as is" with no guarantees, no warranty of any kind, and no liability for anything. Contact timotheuzi@hotmail.com for support.</em></p>

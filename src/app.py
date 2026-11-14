@@ -15,7 +15,8 @@ PROJECTS = [
     'zombie_tim',
     'battle_chess_mobile',
     'nervous',
-    'securephone'
+    'securephone',
+    'snesgems'
 ]
 
 # Map project slugs to their display names
@@ -26,7 +27,8 @@ PROJECT_NAMES = {
     'zombie_tim': 'Zombie Tim',
     'battle_chess_mobile': 'Battle Chess',
     'nervous': 'Nervous?',
-    'securephone': 'SecurePhone'
+    'securephone': 'SecurePhone',
+    'snesgems': 'SNES Gems Emulator'
 }
 
 # Map project slugs to their descriptions
@@ -37,7 +39,8 @@ PROJECT_DESCRIPTIONS = {
     'zombie_tim': 'Zombie Tim is the world\'s first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!',
     'battle_chess_mobile': 'A visceral, cartoon-style chess game built with Flutter and the Flame engine. Featuring chunky pieces with big personalities and high-impact combat animations.',
     'nervous': 'A state-of-the-art Flutter mobile application developed by Dark Work, LLC that measures real-time nervousness, anxiety, and physiological stress using phone sensors and paired smartwatch biometrics.',
-    'securephone': 'SecurePhone is a communications prototype with Tor-backed SMS relay requests and call signaling.'
+    'securephone': 'SecurePhone is a communications prototype with Tor-backed SMS relay requests and call signaling.',
+    'snesgems': 'A Python-Django web application that runs Super Nintendo (SNES) games directly in your browser with WebAssembly Snes9x, mobile touch controls, browser save states, and a WYSIWYG rich-text page editor.'
 }
 
 # Map project slugs to their template name prefix
@@ -48,12 +51,14 @@ TEMPLATE_PREFIXES = {
     'zombie_tim': 'zombie_tim',
     'battle_chess_mobile': 'battle_chess_mobile',
     'nervous': 'nervous',
-    'securephone': 'securephone'
+    'securephone': 'securephone',
+    'snesgems': 'snesgems'
 }
 
 # Map project slugs to live links
 PROJECT_LINKS = {
-    'darknesses': 'https://darknesses.pythonanywhere.com'
+    'darknesses': 'https://darknesses.pythonanywhere.com',
+    'snesgems': 'https://hoobylab.pythonanywhere.com'
 }
 
 DOC_TYPES = {

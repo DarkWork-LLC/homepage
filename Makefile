@@ -1,4 +1,4 @@
-.PHONY: all lint test clean build run kill help
+.PHONY: all build clean help kill lint run test
 
 # Configuration
 PORT ?= 5000
@@ -34,15 +34,15 @@ kill:
 
 help:
 	@echo "Available targets:"
-	@echo "  all    - Run lint, test, build, and run in sequence"
-	@echo "  lint   - Install and run pylint on src/app.py"
-	@echo "  test   - Run unit tests"
-	@echo "  clean  - Kill running instances and remove .pyc files"
-	@echo "  build  - Kill running instances and install dependencies"
-	@echo "  run    - Run the application on port $(PORT)"
-	@echo "  kill   - Kill any running Flask application instances"
-	@echo "  help   - Show this help message"
 	@echo ""
 	@echo "Configuration:"
 	@echo "  PORT   - Port number for the application (default: 5000)"
 	@echo "           Usage: make run PORT=8080"
+	@echo "  all    - Run lint, test, build, and run in sequence"
+	@echo "  build  - Kill running instances and install dependencies"
+	@echo "  clean  - Kill running instances and remove .pyc files"
+	@echo "  help   - Show this help message"
+	@echo "  kill   - Kill any running Flask application instances"
+	@echo "  lint   - Install and run pylint on src/app.py"
+	@echo "  run    - Run the application on port $(PORT)"
+	@echo "  test   - Run unit tests"
