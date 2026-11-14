@@ -58,7 +58,9 @@ TEMPLATE_PREFIXES = {
 # Map project slugs to live links
 PROJECT_LINKS = {
     'darknesses': 'https://darknesses.pythonanywhere.com',
-    'snesgems': 'https://hoobylab.pythonanywhere.com'
+    'snesgems': 'https://hoobylab.pythonanywhere.com',
+    'darkwork': 'https://play.google.com/store/apps/details?id=com.darkworks.lab',
+    'battle_chess_mobile': 'https://play.google.com/store/apps/details?id=com.battlechess.battle_chess_mobile'
 }
 
 DOC_TYPES = {

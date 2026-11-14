@@ -8,7 +8,9 @@
         <p>{{ project_description }}</p>
         {% if project_link %}
             <div style="margin-top: 1.5rem;">
-                <a href="{{ project_link }}" target="_blank" class="btn" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Play Live Game</a>
+                <a href="{{ project_link }}" target="_blank" class="btn" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    {% if 'play.google.com' in project_link %}Get it on Google Play{% else %}Play Live Game{% endif %}
+                </a>
             </div>
         {% endif %}
     </section>
